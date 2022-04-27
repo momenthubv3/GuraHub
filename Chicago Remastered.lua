@@ -1,4 +1,15 @@
--- Fuck y'all who take credits of my shit   lobox920#9889
+-- Wow Open Source ? yes its fun to make script so i publish on game that i like or is fine  lobox920#9889
+
+
+local ESP = loadstring(game:HttpGet("https://raw.githubusercontent.com/lobox920/Shar-Script/main/Esp.lua"))()
+ESP:Toggle(true)
+ESP.Players = true 
+ESP.Tracers = false 
+ESP.Boxes = false 
+ESP.Names = false
+
+
+
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local Window = OrionLib:MakeWindow({Name = "Chicago Remastered x SharScript", HidePremium = true, SaveConfig = true, ConfigFolder = "Shar Script"})
 
@@ -395,14 +406,6 @@ local Tab = Window:MakeTab({
 Tab:AddLabel("ESP")
 
 
-
-
-local ESP = loadstring(game:HttpGet("https://raw.githubusercontent.com/lobox920/Chicago-Remastered/main/Esp.lua"))()
-ESP:Toggle(true)
-ESP.Players = true 
-ESP.Tracers = false 
-ESP.Boxes = false 
-ESP.Names = false
 
 
 
