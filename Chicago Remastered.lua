@@ -512,6 +512,23 @@ end));
   	end    
 })
 
+Tab:AddLabel("Toggle Ui")
+
+
+Tab:AddBind({
+	Name = "Toggle Ui",
+	Default = Enum.KeyCode.LeftAlt,
+	Hold = false,
+	Callback = function()
+	    if game:GetService("CoreGui").Orion.Enabled == true then
+		game:GetService("CoreGui").Orion.Enabled = false
+		else
+		game:GetService("CoreGui").Orion.Enabled = true
+		end
+	end    
+})
+
+
 
 
 local Tab = Window:MakeTab({
