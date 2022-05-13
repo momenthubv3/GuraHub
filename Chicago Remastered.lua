@@ -1,4 +1,5 @@
--- Last update 13/05/2022_, Protected_by_MoonSecV2, Discord = 'discord.gg/gQEH2uZxUk'
+-- Last update 13/05/2022
+
 _, Protected_by_MoonSecV2, Discord = 'discord.gg/gQEH2uZxUk'
 
 
