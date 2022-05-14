@@ -1,6 +1,7 @@
 -- last update 14/05/2022 
 -- https://discord.gg/F6r8myNVm9
-
+if game.PlaceId == 7167319176 then
+    
 local PlaceID = game.PlaceId
 local AllIDs = {}
 local foundAnything = ""
@@ -73,7 +74,7 @@ end
 
 
 
-if game.PlaceId == 7167319176 then
+
     repeat wait() until game:IsLoaded()
         wait(2)
     -------------- IL BRAQUE LE KFC 
