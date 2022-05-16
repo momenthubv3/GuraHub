@@ -502,28 +502,86 @@ Tab:AddButton({
 })
 
 
-Tab:AddButton({
-	Name = "Fake Money",
-	Callback = function()
-    game.Players.LocalPlayer.Data.Stats.Cash.Value = 10000000000 
-    game.Players.LocalPlayer.Data.Stats.Bank.Value = 10000000000 
-  	end    
-})
 
-Tab:AddButton({
-	Name = "Actualise Money",
-	Callback = function()
-		local ohString1 = "Withdraw"
-		local ohString2 = "1"
-		game:GetService("ReplicatedStorage")._network.atm:InvokeServer(ohString1, ohString2)
-  	end    
-})
 
 local Tab = Window:MakeTab({
 	Name = "Shop",
 	Icon = "",
 	PremiumOnly = false
 })
+Tab:AddLabel("Bank Dealer")
+
+Tab:AddButton({
+	Name = "Buy Duffel Bag (Cost 50$)",
+	Callback = function()
+
+	if game.Players.LocalPlayer.Data.Stats.Cash.Value >= 50 then
+
+		game:GetService("Workspace").Map.NPCs.BankDealerNPC.HumanoidRootPart.PromptAttachment.ProximityPrompt.RequiresLineOfSight = false
+
+		yes = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame
+		
+
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-7.36729527, -9.37552357, -26.8169289, -0.0188392345, -2.77030381e-08, 0.999822497, 4.10246592e-08, 1, 2.84809669e-08, -0.999822497, 4.1553939e-08, -0.0188392345)
+		wait(0.5)
+		fireproximityprompt(game:GetService("Workspace").Map.NPCs.BankDealerNPC.HumanoidRootPart.PromptAttachment.ProximityPrompt, 1, true)
+
+		wait(0.5)
+		local ohString1 = "bank_dealer"
+		local ohString2 = "Duffel Bag"
+		game:GetService("ReplicatedStorage")._network.purchase:InvokeServer(ohString1, ohString2)
+		wait()
+		local ohInstance1 = game:GetService("Players").LocalPlayer.PlayerGui.Shop
+		game:GetService("ReplicatedStorage")._network.terminate:FireServer(ohInstance1)
+
+		game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = yes
+
+	elseif game.Players.LocalPlayer.Data.Stats.Cash.Value <= 50 then
+		OrionLib:MakeNotification({
+			Name = "Shop",
+			Content = "Require 50$ to buy a Duffel Bag",
+			Image = "rbxassetid://2022095309",
+			Time = 5
+		})
+	end
+end    
+})
+Tab:AddButton({
+	Name = "Buy C4 (Cost 3500$)",
+	Callback = function()
+
+	if game.Players.LocalPlayer.Data.Stats.Cash.Value >= 3500 then
+
+		game:GetService("Workspace").Map.NPCs.BankDealerNPC.HumanoidRootPart.PromptAttachment.ProximityPrompt.RequiresLineOfSight = false
+
+		yes = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame
+		
+
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-7.36729527, -9.37552357, -26.8169289, -0.0188392345, -2.77030381e-08, 0.999822497, 4.10246592e-08, 1, 2.84809669e-08, -0.999822497, 4.1553939e-08, -0.0188392345)
+		wait(0.5)
+		fireproximityprompt(game:GetService("Workspace").Map.NPCs.BankDealerNPC.HumanoidRootPart.PromptAttachment.ProximityPrompt, 1, true)
+
+		wait(0.5)
+		local ohString1 = "bank_dealer"
+		local ohString2 = "C4"
+		game:GetService("ReplicatedStorage")._network.purchase:InvokeServer(ohString1, ohString2)
+		wait()
+		local ohInstance1 = game:GetService("Players").LocalPlayer.PlayerGui.Shop
+		game:GetService("ReplicatedStorage")._network.terminate:FireServer(ohInstance1)
+
+		game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = yes
+
+	elseif game.Players.LocalPlayer.Data.Stats.Cash.Value <= 3500 then
+		OrionLib:MakeNotification({
+			Name = "Shop",
+			Content = "Require 3500$ to buy C4",
+			Image = "rbxassetid://2022095309",
+			Time = 5
+		})
+	end
+end    
+})
+
 Tab:AddLabel("Buy Gun")
 
 ----------------------------------------------------------------- GUN
@@ -1178,23 +1236,25 @@ Tab:AddButton({
 	Callback = function()
 		local delay_hook = nil 
 		delay_hook = replaceclosure(delay, newcclosure(function(...)
-			local Arguments = ({...})
+			local Arguments = ({...});
    
    if getcallingscript() and getcallingscript().Name ~= "GunClient" then 
-       return delay_hook(...)
+       return delay_hook(...);
    end
    
    table.foreach(Arguments, function(Index, Value)
        if Value and type(Value) == "function" then 
-           local valid_constants = getconstants(Value)
+           local valid_constants = getconstants(Value);
+           -- I know I can just do getconstants(Arguments[2]) but idk they might change it 
+           
            if valid_constants and table.find(valid_constants, "CoordinateFrame") then 
                setconstant(Value, 12, "focus")
            end
        end
    end)
    
-   return delay_hook(...)
-end))
+   return delay_hook(...);
+end));
 
 	    
 	end    
@@ -1289,8 +1349,8 @@ Tab:AddButton({
 
 
 OrionLib:MakeNotification({
-	Name = "Last Update : 13/05/2022",
-	Content = "Added : AutoRob Store",
+	Name = "Last Update : 16/05/2022",
+	Content = "You can now buy a duffer bag and C4 in the store category",
 	Time = 10
 })
 
