@@ -323,9 +323,9 @@ while AutofarmFriework do
 			end)
 			-------
 
-local havealreadypartloaded = game.Workspace.Camera:FindFirstChild("FrieWorksafepart")
+local havealreadypartloaded = game.Workspace.Camera:FindFirstChild("FrieWorksafepart") -- check if the part is here
 
-if havealreadypartloaded then
+if havealreadypartloaded then -- if the part is here then it will tp you and change the part that you need to touch to sell near the character
     
     game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(0, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {CFrame = CFrame.new(598.99353, -2.5, -96.0014648, 1, -7.29599634e-08, -7.14670497e-14, 7.29599634e-08, 1, 6.41238387e-08, 6.6788575e-14, -6.41238387e-08, 1)}):Play()
 
