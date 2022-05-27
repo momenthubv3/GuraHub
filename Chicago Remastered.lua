@@ -1374,6 +1374,13 @@ Tab:AddButton({
 Tab:AddButton({
 	Name = "Gun No Recoil",
 	Callback = function()
+		OrionLib:MakeNotification({
+		Name = "No Recoil",
+		Content = "Succesful activated Hitbox, but may only work on Synapse",
+	        Time = 5
+	})		
+
+				
 		local delay_hook = nil 
 		delay_hook = replaceclosure(delay, newcclosure(function(...)
 			local Arguments = ({...});
@@ -1406,6 +1413,11 @@ Tab:AddLabel("Aimlock")
 Tab:AddButton({
 	Name = "Amlock",
 	Callback = function()
+		OrionLib:MakeNotification({
+		Name = "Aimlock",
+		Content = "Succesful activated Aimlock!",
+	        Time = 5
+	})
       	getgenv().AimPart = "Head" -- For R15 Games: {UpperTorso, LowerTorso, HumanoidRootPart, Head} | For R6 Games: {Head, Torso, HumanoidRootPart}
       	getgenv().AimlockToggleKey = "T" -- Toggles Aimbot On/Off 
       	getgenv().AimRadius = 50 -- How far away from someones character you want to lock on at
