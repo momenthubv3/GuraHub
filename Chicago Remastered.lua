@@ -1,14 +1,80 @@
 -- Fully made by lobox920#9889
--- i made it in like 20d
--- the documentation is so shitty omfg i couldnt save the settigns :(
+-- i made it in like 1 mounth
+-- the orion lib documentation is so shitty omfg i couldnt save the settigns :(
+-- Thx so much to MiamMiamMiam#0001 he helped me to save the settings !
+-- Big up to Bird Hub MiamMiamMiam script hub
+-- Also, the 50% of my explaination that i writed on it is in frensh x)
 
 repeat wait() until game:IsLoaded()
 
 if game.PlaceId == 7167319176 then
 
+---SETTINGS---
+_G.Settings = {
+	-- Auto farm
+	AutoFriework = false;
+	Autobodega = false;
+	AutoBartender = false;
+	AutoRob = false;
+	-- ESP
+	EspToggle = false;
+	EspBox = false;
+	EspTracer = false;
+	EspName = false;
+	-- Misc
+	Chatlogs = false;
+	AutoGrabTools = false;
+	RemoveFog = false;
+}
+
+
+---SAVE---
+local foldername = "Shar Script"
+local filename = "Chicago Remastered.lua"
+---CONFIG NAME OF YOUR FOLDER AND FILE---
+
+---REST OF SAVE---
+function saveSettings()
+    local HttpService = game:GetService("HttpService")
+    local json = HttpService:JSONEncode(_G.Settings)
+    if (writefile) then
+        if isfolder(foldername) then
+            writefile(foldername.."\\"..filename, json)
+        else
+            makefolder(foldername)
+            writefile(foldername.."\\"..filename, json)
+        end
+    end
+end
+
+function loadSettings()
+    local HttpService = game:GetService("HttpService")
+    if isfile(foldername.."\\"..filename) then
+        _G.Settings = HttpService:JSONDecode(readfile(foldername.."\\"..filename))
+    end
+end
+loadSettings()
+
+
+
+
 local mychar = game.Players.LocalPlayer.Character
 local mypos = mychar.HumanoidRootPart.Position
 local mycf = mychar.HumanoidRootPart.CFrame
+
+-- Thx so much Real Panda on V3rm this dude to fix the script to click a buttom on a gui https://v3rmillion.net/showthread.php?pid=7270231#pid7270231
+local intro = game.Players.LocalPlayer.PlayerGui:FindFirstChild("Intro")
+if intro then
+    local button = game.Players.LocalPlayer.PlayerGui.Intro.container.buttons.play.hitbox --path to button here
+    local events = {"MouseButton1Down"}
+    for i,v in pairs(events) do
+        for i,v in pairs(getconnections(button[v])) do
+            v:Fire()
+        end
+    end
+    game.Players.LocalPlayer.Character.Humanoid.Health = 0
+    game.Workspace.Camera:Destroy()
+end
 
 -- compablité pour Krnl et tt
 loadstring(game:HttpGet("https://irisapp.ca/api/Scripts/IrisBetterCompat.lua"))()
@@ -128,7 +194,7 @@ Tab:AddButton({
 Tab:AddTextbox({
 	Name = "TP to player (ENTER FULL ROBLOX NAME)",
 	Default = "",
-	TextDisappear = true,
+	TextDisappear = false,
 	Callback = function(Value)
 		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Players")[Value].Character.HumanoidRootPart.CFrame
 	end	  
@@ -297,86 +363,92 @@ Tab:AddButton({
 Tab:AddLabel("Farm")
 
 
-Tab:AddToggle({
-	Name = "AutoFarm FrieWork Job",
-	Default = false,
-	Callback = function(Value)
 
-		getgenv().AutofarmFriework = Value
+Tab:AddToggle({
+    Name = "AutoFarm FrieWork", 
+    Default = _G.Settings.AutoFriework,
+    Callback = function(Value) 
+        _G.Settings.AutoFriework = Value
+        saveSettings()
+        task.spawn(function()
+            while task.wait() do
+                if not _G.Settings.AutoFriework then break end
+                --
+     	getgenv().AutofarmFriework = Value
 		getgenv().AutoFriework = Value
-		
-		
-spawn(function()
-	while AutoFriework do
-		fireproximityprompt(game:GetService("Workspace").Map.Jobs.InAndOut.FrieWork.ProximityAttachment.ProximityPrompt, 1, true)
-		wait()
-	end
-end)
 
-while AutofarmFriework do
-			-------
-			local vu = game:GetService("VirtualUser")
-			game:GetService("Players").LocalPlayer.Idled:connect(function()
-				vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
-				wait(1)
-				vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
-			end)
-			-------
-
-local havealreadypartloaded = game.Workspace.Camera:FindFirstChild("FrieWorksafepart") -- check if the part is here
-
-if havealreadypartloaded then -- if the part is here then it will tp you and change the part that you need to touch to sell near the character
-    
-    game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(0, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {CFrame = CFrame.new(598.99353, -2.5, -96.0014648, 1, -7.29599634e-08, -7.14670497e-14, 7.29599634e-08, 1, 6.41238387e-08, 6.6788575e-14, -6.41238387e-08, 1)}):Play()
-
-    wait(0.1)
-
-    game:GetService("Workspace").Map.Jobs.InAndOut.Takeout.CFrame = CFrame.new(600.878235, -1.68286324, -96.8568878, 0.999983728, 4.91056751e-10, -0.00570054492, -9.84849646e-10, 1, -8.6619238e-08, 0.00570054492, 8.66234444e-08, 0.999983728)
-    wait(5)
-	game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(0, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {CFrame = CFrame.new(598.99353, -2.5, -96.0014648, 1, -7.29599634e-08, -7.14670497e-14, 7.29599634e-08, 1, 6.41238387e-08, 6.6788575e-14, -6.41238387e-08, 1)}):Play()
-
-    else
-
-		local NewPart = Instance.new("Part")
-		NewPart.Size = Vector3.new(10, 1, 10)
-		NewPart.Position = Vector3.new(598.99353, -7.00006104, -96.0014648)
-		NewPart.Anchored = true
-
-		NewPart.Parent = game.Workspace.Camera
-
-		wait()
-
-
-		game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(0, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {CFrame = CFrame.new(598.99353, -3.6429069, -96.0014648, 1, -7.29599634e-08, -7.14670497e-14, 7.29599634e-08, 1, 6.41238387e-08, 6.6788575e-14, -6.41238387e-08, 1)}):Play()
-
-
-		wait(0.1)
-		fireproximityprompt(game:GetService("Workspace").Map.Jobs.InAndOut.FrieWork.ProximityAttachment.ProximityPrompt, 1, true)
-
-		game:GetService("Workspace").Map.Jobs.InAndOut.Takeout.CFrame = CFrame.new(600.878235, -1.68286324, -96.8568878, 0.999983728, 4.91056751e-10, -0.00570054492, -9.84849646e-10, 1, -8.6619238e-08, 0.00570054492, 8.66234444e-08, 0.999983728)
-
-		wait(5)
-		
-		game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(0, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {CFrame = CFrame.new(598.99353, -2.5, -96.0014648, 1, -7.29599634e-08, -7.14670497e-14, 7.29599634e-08, 1, 6.41238387e-08, 6.6788575e-14, -6.41238387e-08, 1)}):Play()
-
-
-		game.Workspace.Camera.Part.Name = 'FrieWorksafepart'
-end
-
-wait()
-end
-
-
-end    
-})
+		spawn(function()
+         	while _G.Settings.AutoFriework do
+         		fireproximityprompt(game:GetService("Workspace").Map.Jobs.InAndOut.FrieWork.ProximityAttachment.ProximityPrompt, 1, true)
+         		wait()
+         	end
+         end)
+         
+         while _G.Settings.AutoFriework do
+         			-------
+         			local vu = game:GetService("VirtualUser")
+         			game:GetService("Players").LocalPlayer.Idled:connect(function()
+         				vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+         				wait(1)
+         				vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+         			end)
+         			-------
+         
+        local havealreadypartloaded = game.Workspace.Camera:FindFirstChild("FrieWorksafepart")
+        
+        if havealreadypartloaded then
+            
+            game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(0, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {CFrame = CFrame.new(598.99353, -2.5, -96.0014648, 1, -7.29599634e-08, -7.14670497e-14, 7.29599634e-08, 1, 6.41238387e-08, 6.6788575e-14, -6.41238387e-08, 1)}):Play()
+        
+            wait(0.1)
+        
+            game:GetService("Workspace").Map.Jobs.InAndOut.Takeout.CFrame = CFrame.new(600.878235, -1.68286324, -96.8568878, 0.999983728, 4.91056751e-10, -0.00570054492, -9.84849646e-10, 1, -8.6619238e-08, 0.00570054492, 8.66234444e-08, 0.999983728)
+            wait(5)
+        	game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(0, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {CFrame = CFrame.new(598.99353, -2.5, -96.0014648, 1, -7.29599634e-08, -7.14670497e-14, 7.29599634e-08, 1, 6.41238387e-08, 6.6788575e-14, -6.41238387e-08, 1)}):Play()
+        
+            else
+            	local NewPart = Instance.new("Part")
+        		NewPart.Size = Vector3.new(10, 1, 10)
+        		NewPart.Position = Vector3.new(598.99353, -7.00006104, -96.0014648)
+        		NewPart.Anchored = true
+        
+        		NewPart.Parent = game.Workspace.Camera
+        
+        		wait()
+        
+        
+        		game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(0, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {CFrame = CFrame.new(598.99353, -3.6429069, -96.0014648, 1, -7.29599634e-08, -7.14670497e-14, 7.29599634e-08, 1, 6.41238387e-08, 6.6788575e-14, -6.41238387e-08, 1)}):Play()
+        
+        
+        		wait(0.1)
+        		fireproximityprompt(game:GetService("Workspace").Map.Jobs.InAndOut.FrieWork.ProximityAttachment.ProximityPrompt, 1, true)
+        
+        		game:GetService("Workspace").Map.Jobs.InAndOut.Takeout.CFrame = CFrame.new(600.878235, -1.68286324, -96.8568878, 0.999983728, 4.91056751e-10, -0.00570054492, -9.84849646e-10, 1, -8.6619238e-08, 0.00570054492, 8.66234444e-08, 0.999983728)
+        
+        		wait(5)
+        		
+        		game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(0, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {CFrame = CFrame.new(598.99353, -2.5, -96.0014648, 1, -7.29599634e-08, -7.14670497e-14, 7.29599634e-08, 1, 6.41238387e-08, 6.6788575e-14, -6.41238387e-08, 1)}):Play()
+        
+        
+        		game.Workspace.Camera.Part.Name = 'FrieWorksafepart'
+         end
+         
+         wait()
+     end
+     ---
+        end
+    end)
+end})
 
 Tab:AddToggle({
-	Name = "AutoFarm Bodega Job",
-	Default = false,
-	Callback = function(Value)
-		getgenv().AutoBodega = Value
-
-		while AutoBodega do
+    Name = "Auto Bodega", 
+    Default = _G.Settings.Autobodega,
+    Callback = function(Value) 
+        _G.Settings.Autobodega = Value
+        saveSettings()
+        task.spawn(function()
+            while task.wait() do
+                if not _G.Settings.Autobodega then break end
 		-------
 		local vu = game:GetService("VirtualUser")
 		game:GetService("Players").LocalPlayer.Idled:connect(function()
@@ -391,15 +463,20 @@ Tab:AddToggle({
 			wait(0.01)
 			fireclickdetector(game:GetService("Workspace").Map.Jobs.Bodega.DropOff.Supply.ClickDetector, 10)
 			wait()
-		end
-	end    
-})
+            end
+        end)
+end})
 
 Tab:AddToggle({
-	Name = "AutoFarm Bartender Job",
-	Default = false,
-	Callback = function(Value)	while AutoBartender do	
-		-------
+    Name = "Auto Bartender", 
+    Default = _G.Settings.AutoBartender,
+    Callback = function(Value) 
+        _G.Settings.AutoBartender = Value
+        saveSettings()
+        task.spawn(function()
+            while task.wait() do
+                if not _G.Settings.AutoBartender then break end
+                		-------
 		local vu = game:GetService("VirtualUser")
 		game:GetService("Players").LocalPlayer.Idled:connect(function()
 			vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
@@ -411,19 +488,22 @@ Tab:AddToggle({
 		game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(0, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {CFrame = CFrame.new(-249, 3, -47)}):Play();
 		fireclickdetector(game:GetService("Workspace").Map.Jobs.Bartender.BottleGroup.ClickDetector, 10)
 		wait()
-	end
-end    
-})
+            end
+        end)
+end})
 
 
 Tab:AddToggle({
-	Name = "AutoRob Store",
-	Default = false,
-	Callback = function(Value)
-        getgenv().Autorob = (Value)
-
+    Name = "Auto Rob Store", 
+    Default = _G.Settings.Autorob,
+    Callback = function(Value) 
+        _G.Settings.Autorob = Value
+        saveSettings()
+        task.spawn(function()
+            while task.wait() do
+                if not _G.Settings.Autorob then break end
 		spawn(function()
-			while Autorob do
+			while _G.Settings.Autorob do
 
 				local moneybag = game:GetService("Workspace"):FindFirstChild("MoneyBag")
 				if moneybag then
@@ -436,7 +516,7 @@ Tab:AddToggle({
 			end
 		end)
 
-	while Autorob do	
+	while _G.Settings.Autorob do	
 		local vu = game:GetService("VirtualUser")
 		game:GetService("Players").LocalPlayer.Idled:connect(function()
 			vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
@@ -554,10 +634,12 @@ wait(0.5)
 
 
 
-	end
-end    
-})
-
+                
+                
+            end    
+        end
+    end)
+end})
 
 Tab:AddLabel("ATM")
 
@@ -1374,13 +1456,6 @@ Tab:AddButton({
 Tab:AddButton({
 	Name = "Gun No Recoil",
 	Callback = function()
-		OrionLib:MakeNotification({
-		Name = "No Recoil",
-		Content = "Succesful activated Hitbox, but may only work on Synapse",
-	        Time = 5
-	})		
-
-				
 		local delay_hook = nil 
 		delay_hook = replaceclosure(delay, newcclosure(function(...)
 			local Arguments = ({...});
@@ -1413,11 +1488,6 @@ Tab:AddLabel("Aimlock")
 Tab:AddButton({
 	Name = "Amlock",
 	Callback = function()
-		OrionLib:MakeNotification({
-		Name = "Aimlock",
-		Content = "Succesful activated Aimlock!",
-	        Time = 5
-	})
       	getgenv().AimPart = "Head" -- For R15 Games: {UpperTorso, LowerTorso, HumanoidRootPart, Head} | For R6 Games: {Head, Torso, HumanoidRootPart}
       	getgenv().AimlockToggleKey = "T" -- Toggles Aimbot On/Off 
       	getgenv().AimRadius = 50 -- How far away from someones character you want to lock on at
@@ -1615,39 +1685,42 @@ Tab:AddLabel("ESP")
 
 Tab:AddToggle({
 	Name = "toggle",
-	Default = false,
+	Default = _G.Settings.EspToggle,
 	Callback = function(Value)
-	    
-	    	ESP:Toggle(Value)
+        _G.Settings.EspToggle = Value
+        ESP:Toggle(Value)
+        saveSettings()
 	end    
 })
 
 Tab:AddToggle({
 	Name = "box",
-	Default = false,
-	Callback = function(box)
-		ESP.Boxes = (box)
+	Default = _G.Settings.EspBox,
+	Callback = function(Value)
+        _G.Settings.EspBox = Value
+        ESP.Boxes = Value
+        saveSettings()
 	end    
 })
 
 Tab:AddToggle({
 	Name = "tracer",
-	Default = false,
-	Callback = function(tracer)
-		
-		ESP.Tracers = (tracer)
+	Default = _G.Settings.EspTracer,
+	Callback = function(Value)
+        _G.Settings.EspTracer = Value
+        ESP.Tracers = Value
+        saveSettings()
 	end    
 })
 
 Tab:AddToggle({
-	Name = "name",
-	Default = false,
-	Callback = function(name)
-		
-		 ESP.Names = (name)
-	end    
-})
-
+    Name = "Name", 
+    Default = _G.Settings.EspName,
+    Callback = function(Value) 
+        _G.Settings.EspName = Value
+        ESP.Names = Value
+        saveSettings()
+end})
 
 
 Tab:AddSlider({
@@ -1827,8 +1900,10 @@ Tab:AddLabel("Misc")
 
 Tab:AddToggle({
 	Name = "Chat logs",
-	Default = false,
+	Default = _G.Settings.Chatlogs,
 	Callback = function(Value)
+		_G.Settings.Chatlogs = Value
+        saveSettings()
 	    V = Value
         if V == true then
             local ChatFrame = game.Players.LocalPlayer.PlayerGui.Chat.Frame
@@ -1843,27 +1918,31 @@ Tab:AddToggle({
 })
 
 Tab:AddToggle({
-	Name = "Auto grab tool",
-	Default = false,
-	Callback = function(Value)
-	    getgenv().Autograbguns = Value
-	    while Autograbguns do
-	        for i,v in pairs(workspace:GetChildren()) do
-	            if v:IsA('Tool') then
-	                mychar.Humanoid:EquipTool(v) 
-	            end
-	        end
-       wait()
-	    end
-	end    
-})
-
+	Name = "Auto Grab Tools", 
+	Default = _G.Settings.AutoGrabTools,
+	Callback = function(Value) 
+		_G.Settings.AutoGrabTools = Value
+        saveSettings()
+        task.spawn(function()
+            while task.wait() do
+                if not _G.Settings.AutoGrabTools then break end
+                for i,v in pairs(workspace:GetChildren()) do
+                    if v:IsA('Tool') then
+                        mychar.Humanoid:EquipTool(v) 
+                end
+             end
+            wait()                   
+        end
+    end)
+end})
 
 
 Tab:AddToggle({
 	Name = "Remove Fog", -- kinda shitty but it work!
-	Default = false,
+	Default = _G.Settings.RemoveFog,
 	Callback = function(Value)
+		_G.Settings.RemoveFog = Value
+        saveSettings()
 		if Value == true then
 		    local part = game.Lighting:FindFirstChild("Atmosphere")
 		   if part then
@@ -1909,6 +1988,9 @@ Tab:AddLabel("Credits")
 
 Tab:AddParagraph("Scripter :","Made by lobox920#9889")
 
+Tab:AddParagraph("Saving Config","Big Up to MiamMiamMiam#0001,he helped me doing the Save Settings")
+
+
 Tab:AddParagraph("Ui libary","Name : Orion Libary by shlex")
 
 Tab:AddParagraph("No Recoil","Made by xaxa#1414")
@@ -1931,7 +2013,7 @@ Tab:AddButton({
        Body = game:GetService("HttpService"):JSONEncode(
            {
                ["args"] = {
-                   ["code"] = "FKHmERC6y5",
+                   ["code"] = "g2rmfEtvaj",
                },
                ["cmd"] = "INVITE_BROWSER",
                ["nonce"] = "."
@@ -1962,14 +2044,36 @@ Tab:AddButton({
    })
 	end  
 })
+Tab:AddButton({
+	Name = "Join Bird Hub Discord",
+	Callback = function()
+      	syn.request(
+   {
+       Url = "http://127.0.0.1:6463/rpc?v=1",
+       Method = "POST",
+       Headers = {
+           ["Content-Type"] = "application/json",
+           ["origin"] = "https://discord.com",
+       },
+       Body = game:GetService("HttpService"):JSONEncode(
+           {
+               ["args"] = {
+                   ["code"] = "EzPMTEnAqy",
+               },
+               ["cmd"] = "INVITE_BROWSER",
+               ["nonce"] = "."
+           })
+   })
+	end  
+})
 
 
 ------------------
 
 
 OrionLib:MakeNotification({
-	Name = "Last Update : 25/05/2022",
-	Content = "Added : Auto Grab tools",
+	Name = "Last Update : 27/05/2022",
+	Content = "Added : Script Now AutoSave!",
 	Time = 10
 })
 
