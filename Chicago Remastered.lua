@@ -27,7 +27,7 @@ ESP.Names = false
 
 
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({Name = "Chicago Remastered x SharScript Premium", HidePremium = true, SaveConfig = true, ConfigFolder = "Shar Script"})
+local Window = OrionLib:MakeWindow({Name = "Chicago Remastered x SharScript", HidePremium = true, SaveConfig = true, ConfigFolder = "Shar Script"})
 
 local Tab = Window:MakeTab({
 	Name = "Player",
