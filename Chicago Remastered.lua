@@ -54,14 +54,7 @@ function loadSettings()
     end
 end
 loadSettings()
-
-
-
-
-local mychar = game.Players.LocalPlayer.Character
-local mypos = mychar.HumanoidRootPart.Position
-local mycf = mychar.HumanoidRootPart.CFrame
-
+	
 -- Thx so much Real Panda on V3rm this dude to fix the script to click a buttom on a gui https://v3rmillion.net/showthread.php?pid=7270231#pid7270231
 local intro = game.Players.LocalPlayer.PlayerGui:FindFirstChild("Intro")
 if intro then
@@ -75,6 +68,14 @@ if intro then
     game.Players.LocalPlayer.Character.Humanoid.Health = 0
     game.Workspace.Camera:Destroy()
 end
+
+
+
+
+local mychar = game.Players.LocalPlayer.Character
+local mypos = mychar.HumanoidRootPart.Position
+local mycf = mychar.HumanoidRootPart.CFrame
+
 
 -- compablité pour Krnl et tt
 loadstring(game:HttpGet("https://irisapp.ca/api/Scripts/IrisBetterCompat.lua"))()
