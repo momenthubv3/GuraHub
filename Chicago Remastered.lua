@@ -1,8 +1,8 @@
 -- Fully made by lobox920#9889
 -- i made it in like 1 mounth
 -- the orion lib documentation is so shitty omfg i couldnt save the settigns :(
--- Thx so much to MiamMiamMiam#0001 he helped me to save the settings !
--- Big up to Bird Hub MiamMiamMiam script hub
+-- Thx so much to MiamMiamMiam#0001 she helped me to save the settings !
+-- Big up to Bird Hub MiamMiamMiam's script hub
 -- Also, the 50% of my explaination that i writed on it is in frensh x)
 
 repeat wait() until game:IsLoaded()
