@@ -672,7 +672,7 @@ Tab:AddTextbox({
 Tab:AddButton({
 	Name = "Open ATM",
 	Callback = function()
-	game:GetService("Workspace").Map.Interactives.ATM.ATM.ClickDetector.MaxActivationDistance = 999999986991104
+	game:GetService("Workspace").Map.Interactives.ATM.ClickDetector.MaxActivationDistance = 999999986991104
 	fireclickdetector(game:GetService("Workspace").Map.Interactives.ATM.ClickDetector, 999999986991104)
 end    
 })
