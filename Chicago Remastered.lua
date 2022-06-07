@@ -54,8 +54,8 @@ function loadSettings()
     end
 end
 loadSettings()
-	
--- Thx so much Real Panda on V3rm this dude to fix the script to click a buttom on a gui https://v3rmillion.net/showthread.php?pid=7270231#pid7270231
+
+-- It click the button of the intro gui
 local intro = game.Players.LocalPlayer.PlayerGui:FindFirstChild("Intro")
 if intro then
     local button = game.Players.LocalPlayer.PlayerGui.Intro.container.buttons.play.hitbox --path to button here
@@ -212,16 +212,22 @@ local Tab = Window:MakeTab({
 Tab:AddLabel("Bank")
 
 Tab:AddButton({
-	Name = "Goto Bank Door",
+	Name = "Goto Bank",
 	Callback = function()
-      	game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(0, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {CFrame = CFrame.new(-246, 5, 94)}):Play()
+		game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(0, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {CFrame = CFrame.new(61, 3, -352)}):Play()
+  	end    
+})
+Tab:AddButton({
+	Name = "Goto Bank Vaul tDoor",
+	Callback = function()
+      	game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(0, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {CFrame = CFrame.new(61, -26.69, -312)}):Play()
   	end    
 })
 
 Tab:AddButton({
 	Name = "Goto Bank Vault",
 	Callback = function()
-      	    game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(0, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {CFrame = CFrame.new(-220, -6, 117)}):Play()
+      	    game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(0, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {CFrame = CFrame.new(62, -26.69, -270)}):Play()
   	end    
 })
 
@@ -234,7 +240,52 @@ Tab:AddButton({
 	end    
 })
 
+Tab:AddLabel("Public Building")
+
+Tab:AddButton({
+	Name = "Goto Police Station",
+	Callback = function()
+		game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(0, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {CFrame = CFrame.new(153, 3, -364)}):Play()
+	end    
+})
+
+Tab:AddButton({
+	Name = "Goto Police Cells",
+	Callback = function()
+		game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(0, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {CFrame = CFrame.new(298.92572, 3.22447729, -368.483002, 0.0241038762, -3.68269646e-08, -0.999709487, 1.07089342e-07, 1, -3.4255649e-08, 0.999709487, -1.06232534e-07, 0.0241038762)}):Play()
+	end    
+})
+
+Tab:AddButton({
+	Name = "Goto Hospital",
+	Callback = function()
+		game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(0, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {CFrame = CFrame.new(417, 3, -362)}):Play()
+	end    
+})
+
+Tab:AddButton({
+	Name = "Goto Music Studio",
+	Callback = function()
+		game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(0, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {CFrame = CFrame.new(-403, 3, -38)}):Play()
+	end    
+})
+
+Tab:AddButton({
+	Name = "Goto Blox Sports",
+	Callback = function()
+		game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(0, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {CFrame = CFrame.new(-114, 3, -188)}):Play()
+	end    
+})
+
+Tab:AddButton({
+	Name = "Goto Chicago Cuts",
+	Callback = function()
+		game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(0, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {CFrame = CFrame.new(-57, 3, -33)}):Play()
+	end    
+})
+
 Tab:AddLabel("Shop")
+
 
 
 Tab:AddButton({
@@ -1975,6 +2026,12 @@ Tab:AddBind({
 		end
 	end    
 })
+Tab:AddButton({
+	Name = "Chat Bypasser",
+	Callback = function()
+		loadstring(game:HttpGet("https://the-shed.xyz/roblox/scripts/ChatBypass", true))()
+	end    
+})
 
 
 
@@ -1988,9 +2045,6 @@ local Tab = Window:MakeTab({
 Tab:AddLabel("Credits")
 
 Tab:AddParagraph("Scripter :","Made by lobox920#9889")
-
-Tab:AddParagraph("Saving Config","Big Up to MiamMiamMiam#0001,he helped me doing the Save Settings")
-
 
 Tab:AddParagraph("Ui libary","Name : Orion Libary by shlex")
 
