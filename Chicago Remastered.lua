@@ -1071,7 +1071,7 @@ Tab:AddButton({
 	elseif game.Players.LocalPlayer.Data.Stats.Cash.Value <= 5000 then
 		OrionLib:MakeNotification({
 			Name = "Shop",
-			Content = "Require 2900$ to buy a G20",
+			Content = "Require 5000$ to buy a G20",
 			Image = "rbxassetid://2022095309",
 			Time = 5
 		})
