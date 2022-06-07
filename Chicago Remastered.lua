@@ -2127,8 +2127,8 @@ Tab:AddButton({
 
 
 OrionLib:MakeNotification({
-	Name = "Last Update : 27/05/2022",
-	Content = "Added : Script Now AutoSave!",
+	Name = "Shar Script",
+	Content = "Thx for using my script!",
 	Time = 10
 })
 
