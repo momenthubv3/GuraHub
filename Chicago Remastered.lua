@@ -2144,7 +2144,7 @@ Tab:AddButton({
 
 OrionLib:MakeNotification({
 	Name = "Last Update : 12/06/2022",
-	Content = "Changed : Player list is improved",
+	Content = "Changed : Tp to player is Improved",
 	Time = 10
 })
 
