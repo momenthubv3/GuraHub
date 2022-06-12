@@ -192,15 +192,31 @@ Tab:AddButton({
   	end    
 })
 
-Tab:AddTextbox({
-	Name = "TP to player (ENTER FULL ROBLOX NAME)",
-	Default = "",
-	TextDisappear = false,
-	Callback = function(Value)
-		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Players")[Value].Character.HumanoidRootPart.CFrame
-	end	  
+local Dropdown = Tab:AddDropdown({
+    Name = "TP to player",
+    Default = "",
+    Options = playerlist,
+    Callback = function(Value)
+    	mychar.HumanoidRootPart.CFrame = game:GetService("Players")[Value].Character.HumanoidRootPart.CFrame
+    	OrionLib:MakeNotification({
+    		Name = "Teleport Info :",
+        	Content = "Teleported to : "..Value,
+        	Image = "rbxassetid://4483345998",
+        	Time = 5
+        })
+    end    
 })
-
+task.spawn(function()
+    while wait(1) do
+        local players = game.Players:GetChildren()
+        local PlayerList = {}
+    
+        for i,v in pairs(players) do
+            table.insert(PlayerList,v.Name)
+        end
+        Dropdown:Refresh(PlayerList, true)
+    end
+end)
 
 
 local Tab = Window:MakeTab({
@@ -2127,8 +2143,8 @@ Tab:AddButton({
 
 
 OrionLib:MakeNotification({
-	Name = "Shar Script",
-	Content = "Thx for using my script!",
+	Name = "Last Update : 12/06/2022",
+	Content = "Changed : Player list is improved",
 	Time = 10
 })
 
