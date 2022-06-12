@@ -1,11 +1,70 @@
 repeat wait() until game:IsLoaded()
-if game.PlaceId == 7167319176 then
+if game.PlaceId == 8425637426 then
    local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
    local Window = OrionLib:MakeWindow({Name = "Write a Letter x SharScript", HidePremium = true})
    
    local Tab = Window:MakeTab({
-   	Name = "Tab 1",
-   	Icon = "rbxassetid://4483345998",
+    Name = "Credits",
+    Icon = "",
+    PremiumOnly = false
+    })
+    
+    Tab:AddLabel("Credits")
+    
+    Tab:AddParagraph("Scripter :","lobox920#9889")
+    
+    Tab:AddParagraph("Ui libary","Name : Orion Library")
+    
+    Tab:AddLabel("Discord : ")
+    
+    Tab:AddButton({
+        Name = "Join My Discord",
+        Callback = function()
+              syn.request(
+       {
+           Url = "http://127.0.0.1:6463/rpc?v=1",
+           Method = "POST",
+           Headers = {
+               ["Content-Type"] = "application/json",
+               ["origin"] = "https://discord.com",
+           },
+           Body = game:GetService("HttpService"):JSONEncode(
+               {
+                   ["args"] = {
+                       ["code"] = "g2rmfEtvaj",
+                   },
+                   ["cmd"] = "INVITE_BROWSER",
+                   ["nonce"] = "."
+               })
+       })
+        end  
+    })
+    
+    Tab:AddButton({
+        Name = "Join Sirus Discord (Orion Lib discord)",
+        Callback = function()
+              syn.request(
+       {
+           Url = "http://127.0.0.1:6463/rpc?v=1",
+           Method = "POST",
+           Headers = {
+               ["Content-Type"] = "application/json",
+               ["origin"] = "https://discord.com",
+           },
+           Body = game:GetService("HttpService"):JSONEncode(
+               {
+                   ["args"] = {
+                       ["code"] = "yWdmdv2BmP",
+                   },
+                   ["cmd"] = "INVITE_BROWSER",
+                   ["nonce"] = "."
+               })
+       })
+        end  
+    })
+   local Tab = Window:MakeTab({
+   	Name = "Emotes",
+   	Icon = "",
    	PremiumOnly = false
    })
    Tab:AddDropdown({
@@ -159,65 +218,4 @@ if game.PlaceId == 7167319176 then
    		end
      	end    
    })
-
 end
-
-local Tab = Window:MakeTab({
-	Name = "Credits",
-	Icon = "",
-	PremiumOnly = false
-})
-
-Tab:AddLabel("Credits")
-
-Tab:AddParagraph("Scripter :","lobox920#9889")
-
-Tab:AddParagraph("Ui libary","Name : Orion Library")
-
-Tab:AddLabel("Discord : ")
-
-Tab:AddButton({
-	Name = "Join My Discord",
-	Callback = function()
-      	syn.request(
-   {
-       Url = "http://127.0.0.1:6463/rpc?v=1",
-       Method = "POST",
-       Headers = {
-           ["Content-Type"] = "application/json",
-           ["origin"] = "https://discord.com",
-       },
-       Body = game:GetService("HttpService"):JSONEncode(
-           {
-               ["args"] = {
-                   ["code"] = "g2rmfEtvaj",
-               },
-               ["cmd"] = "INVITE_BROWSER",
-               ["nonce"] = "."
-           })
-   })
-	end  
-})
-
-Tab:AddButton({
-	Name = "Join Sirus Discord (Orion Lib discord)",
-	Callback = function()
-      	syn.request(
-   {
-       Url = "http://127.0.0.1:6463/rpc?v=1",
-       Method = "POST",
-       Headers = {
-           ["Content-Type"] = "application/json",
-           ["origin"] = "https://discord.com",
-       },
-       Body = game:GetService("HttpService"):JSONEncode(
-           {
-               ["args"] = {
-                   ["code"] = "yWdmdv2BmP",
-               },
-               ["cmd"] = "INVITE_BROWSER",
-               ["nonce"] = "."
-           })
-   })
-	end  
-})
