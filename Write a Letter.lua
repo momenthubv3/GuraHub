@@ -92,8 +92,8 @@ if game.PlaceId == 8425637426 then
                a = game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(game:GetService("ReplicatedStorage").Emotes.Packs.Floaty["Ambitious Flight"].Animation)
                a:Play()
            end
-   	end    
-   })
+   	end
+    })
    Tab:AddDropdown({
    	Name = "Weapons",
    	Default = "",
@@ -142,8 +142,8 @@ if game.PlaceId == 8425637426 then
                a = game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(game:GetService("ReplicatedStorage").Emotes.Packs.Weapons["Knife"].Idle1)
                a:Play()
    		end
-   	end    
-   })
+   	end
+    })
    Tab:AddDropdown({
    	Name = "Powers",
    	Default = "",
