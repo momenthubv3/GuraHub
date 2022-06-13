@@ -70,7 +70,7 @@ if game.PlaceId == 8425637426 then
    Tab:AddDropdown({
    	Name = "Floaty",
    	Default = "",
-   	Options = {"Air Spin", "Floaty Sit", "Floaty Lay", "Mediation", "Ambitious Flight"},
+   	Options = {"Air Spin", "Floaty Sit", "Floaty Lay", "Meditation", "Ambitious Flight"},
    	Callback = function(Value)
    		if Value == "Air Spin" then
                a = game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(game:GetService("ReplicatedStorage").Emotes.Packs.Floaty["Air Spin"].Animation)
