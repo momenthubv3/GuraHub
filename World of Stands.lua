@@ -295,14 +295,56 @@ if game.PlaceId == 6728870912 then
             end
     	end    
     })
-    
+    Tab:AddLabel("2 nd AutoGrab Items in case those above dont work")
+    Tab:AddToggle({
+    	Name = "Auto Grab Arrow",
+    	Default = false,
+    	Callback = function(Value)
+    		getgenv().AutograArrow2 = Value
+            while getgenv().AutograArrow2 do
+                local Arrow = workspace:FindFirstChild("StandArrow")
+                if Arrow then
+                    Arrow:FindFirstChild("Part").CFrame = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame
+                end
+                wait(0.5)
+            end
+    	end    
+    })
+    Tab:AddToggle({
+    	Name = "Auto Grab Roka",
+    	Default = false,
+    	Callback = function(Value)
+    		getgenv().Autograbroka2 = Value
+            while getgenv().Autograbroka2 do
+                local roka = workspace:FindFirstChild("LocacacaFruit")
+                if roka then
+                    roka:FindFirstChild("Part").CFrame = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame
+                end
+                wait(0.5)
+            end
+    	end    
+    })
+    Tab:AddToggle({
+    	Name = "Auto Grab Shiny Arrow",
+    	Default = false,
+    	Callback = function(Value)
+    		getgenv().AutograbShinyArrow2 = Value
+            while getgenv().AutograbShinyArrow2 do
+                local shinyarrow = workspace:FindFirstChild("ShinyArrow")
+                if shinyarrow then
+                    shinyarrow:FindFirstChild("Part").CFrame = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame
+                end
+                wait(0.5)
+            end
+    	end    
+    })
     
     local Tab = Window:MakeTab({
-    	Name = "Shyni Stand Farm",
+    	Name = "Shynie Stand Farm",
     	Icon = "",
     	PremiumOnly = false
     })
-    
+    ownstand = "Dark Star"
     
     Tab:AddLabel("CHOOSE ONLY 1 AWNSER OR IT WILL BREAK THE FARM")
     Tab:AddLabel("IF THE STAND FARM DONT WORK THEN REJOIN THE GAME")
@@ -424,4 +466,3 @@ if game.PlaceId == 6728870912 then
     })
     OrionLib:Init()
 end
-
