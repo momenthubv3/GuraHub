@@ -298,7 +298,7 @@ if game.PlaceId == 6728870912 then
     
     
     local Tab = Window:MakeTab({
-    	Name = "Shynie Stand Farm",
+    	Name = "Shyni Stand Farm",
     	Icon = "",
     	PremiumOnly = false
     })
