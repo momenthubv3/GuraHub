@@ -302,7 +302,7 @@ if game.PlaceId == 6728870912 then
     	Icon = "",
     	PremiumOnly = false
     })
-    ownstand = "Dark Star"
+    
     
     Tab:AddLabel("CHOOSE ONLY 1 AWNSER OR IT WILL BREAK THE FARM")
     Tab:AddLabel("IF THE STAND FARM DONT WORK THEN REJOIN THE GAME")
