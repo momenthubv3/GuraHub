@@ -181,6 +181,32 @@ if game.PlaceId == 6728870912 then
             end
       	end    
     })
+    local Dropdown = Tab:AddDropdown({
+        Name = "TP to player",
+        Default = "",
+        Options = playerlist,
+        Callback = function(Value)
+            mychar = game.Players.LocalPlayer.Character
+            mychar.HumanoidRootPart.CFrame = game:GetService("Players")[Value].Character.HumanoidRootPart.CFrame
+            OrionLib:MakeNotification({
+                Name = "Teleport Info :",
+                Content = "Teleported to"..Value.."'s Position",
+                Image = "rbxassetid://4483345998",
+                Time = 5
+            })
+        end    
+    })
+    task.spawn(function()
+        while wait(1) do
+            local players = game.Players:GetChildren()
+            local PlayerList = {}
+        
+            for i,v in pairs(players) do
+                table.insert(PlayerList,v.Name)
+            end
+            Dropdown:Refresh(PlayerList, true)
+        end
+    end)
     
     Tab:AddButton({
     	Name = "Exit Gui",
@@ -317,13 +343,18 @@ if game.PlaceId == 6728870912 then
                     if SendWebhookforfound == true then
                         sendwehook()
                     end
-                	Value = false
                     getgenv().StandFarm = false
                     OrionLib:MakeNotification({
                         Name = "Stand Farm",
                         Content = "You already have the wanted stand : "..WantedShynie,
                         Image = "rbxassetid://4483345998",
                         Time = 5
+                    })
+                    OrionLib:MakeNotification({
+                        Name = "Stand Farm",
+                        Content = "Stand Farm is Powerd off due to this!",
+                        Image = "rbxassetid://4483345998",
+                        Time = 10
                     })
                 else
                     if getgenv().UseShinyArrow == true then
