@@ -295,7 +295,7 @@ if game.PlaceId == 6728870912 then
             end
     	end    
     })
-    Tab:AddLabel("2 nd AutoGrab Items in case those above dont work")
+    Tab:AddLabel("2 nd AutoGrab Items in case the one above dont work")
     Tab:AddToggle({
     	Name = "Auto Grab Arrow",
     	Default = false,
