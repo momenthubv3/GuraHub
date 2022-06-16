@@ -641,6 +641,12 @@ if game.PlaceId == 5910449407 then
             Dropdown:Refresh(NPClist, true)
         end
     end)
+	Tab:AddButton({
+    	Name = "Goto Dev Island",
+    	Callback = function()
+    		game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(0, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {CFrame = CFrame.new(-1727, 25, -221)}):Play()
+      	end    
+    })
     local Tab = Window:MakeTab({
     	Name = "Shop",
     	Icon = "",
