@@ -315,7 +315,28 @@ if game.PlaceId == 5910449407 then
             end
         end    
     })
-    
+    Tab:AddToggle({
+        Name = "Corpse Part",
+        Default = false,
+        Callback = function(Value)
+            getgenv().FarmItemCorpsePart = Value
+            while getgenv().ActiveItemFarm == true do
+                if getgenv().FarmItemCorpsePart == true then
+                    local Arrow = workspace:FindFirstChild("CorpsePart")
+                    if Arrow then
+                        game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").CorpsePart.CFrame
+                        wait(0.5)
+                        fireproximityprompt(game:GetService("Workspace").CorpsePart.ProximityPrompt, 0.75, true)
+                        wait(0.75)
+                        if getgenv().ActiveTPSafeZone == true then
+                            SafeZoneForFarm()
+                        end
+                    end
+                end
+                wait(0.5)
+            end
+        end    
+    })
     local Tab = Window:MakeTab({
         Name = "Stand Farm",
         Icon = "",
@@ -344,7 +365,7 @@ if game.PlaceId == 5910449407 then
             elseif Value == "Star Platinum OVA" then
                 getgenv().WantedStand = "StarPlatinumOVA"
             elseif Value == "Whitesnake" then
-                getgenv().WantedStand = "Whitesnake"
+                getgenv().WantedStand = "Whitesnake"        
             elseif Value == "Whitesnake Deimos" then
                 getgenv().WantedStand = "WhitesnakeHeritage"
             elseif Value == "D4C" then
