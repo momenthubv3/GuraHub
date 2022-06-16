@@ -31,6 +31,8 @@ if game.PlaceId == 5910449407 then
         Tab:AddLabel("Credits")
         
         Tab:AddParagraph("Scripter :","lobox920#9889")
+	
+	Tab:AddParagraph("Mob Farm Help :","Kusuki#6517")
         
         Tab:AddParagraph("Ui libary","Name : Orion Library")
         
@@ -50,7 +52,7 @@ if game.PlaceId == 5910449407 then
                Body = game:GetService("HttpService"):JSONEncode(
                    {
                        ["args"] = {
-                           ["code"] = "g2rmfEtvaj",
+                           ["code"] = "FKHmERC6y5",
                        },
                        ["cmd"] = "INVITE_BROWSER",
                        ["nonce"] = "."
