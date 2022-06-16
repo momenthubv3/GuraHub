@@ -1,6 +1,6 @@
 repeat wait() until game:IsLoaded()
 if game.PlaceId == 5910449407 then
-	
+
     local function SafeZoneForFarm()
     	local part = game:GetService("Workspace").Terrain:FindFirstChild("Part")
     	if part then
@@ -354,6 +354,12 @@ if game.PlaceId == 5910449407 then
     				print("Have wanted stand!")
                     --StandFarmToggle:Set(false) I cant use it because it wont work and say nil value due because it only will work if its used right the toggle like a button or something ;-;
                     getgenv().StandFarm = false
+					OrionLib:MakeNotification({
+						Name = "Stand Farm",
+						Content = "You Already Have the Wanted Stand!",
+						Image = "",
+						Time = 5
+					})
                 else
     				local function GetStand()
     					if mystand == "None" then
@@ -675,9 +681,9 @@ if game.PlaceId == 5910449407 then
     		game:GetService("ReplicatedStorage").Remotes.Shop:FireServer("StandRokakaka")
       	end    
     })
-    
+end
     --[[
-     Stand List : -- First Value is the real data value and second is the name showed
+     Stand List : -- First Value is the data value and second is the name showed
      
     return {
     	None = "None", 
@@ -709,4 +715,3 @@ if game.PlaceId == 5910449407 then
     	DirtyDeedsLT = "Dirty Deeds: Love Train"
     };
     ]]
-end
