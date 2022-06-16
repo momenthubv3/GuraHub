@@ -325,7 +325,7 @@ if game.PlaceId == 5910449407 then
     Tab:AddDropdown({
         Name = "Chose Wanted Stand",
         Default = "",
-        Options = {"The World", "The World Heritage", "The World OVA", "Star Platinum", "Star Platinum Stone Ocean", "Star Platinum Heritage", "Star Platinum OVA", "WhiteSnake", "Whitesnake Deimos", "D4C", "Dirty Deeds"},
+        Options = {"The World", "The World Heritage", "The World OVA", "Star Platinum","Star Platinum The World", "Star Platinum Stone Ocean", "Star Platinum Heritage", "Star Platinum OVA", "WhiteSnake", "Whitesnake Deimos", "D4C", "Dirty Deeds"},
         Callback = function(Value)
             if Value == "The World" then
                 getgenv().WantedStand = "TheWorld"
@@ -337,6 +337,8 @@ if game.PlaceId == 5910449407 then
                 getgenv().WantedStand = "StarPlatinumPrime"
             elseif Value == "Star Platinum Stone Ocean" then
                 getgenv().WantedStand = "StarPlatinumStoneOcean"
+            elseif Value == "Star Platinum The World" then
+                getgenv().WantedStand = "StarPlatinumTheWorld"
             elseif Value == "Star Platinum Heritage" then
                 getgenv().WantedStand = "StarPlatinumHeritage"
             elseif Value == "Star Platinum OVA" then
@@ -358,6 +360,7 @@ if game.PlaceId == 5910449407 then
         Default = false,
         Callback = function(Value)
             mystand = game:GetService("Players").LocalPlayer.Data.Stand.Value
+            shynie = {"DirtyDeeds", "WhitesnakeHeritage", "StarPlatinumOVA", "StarPlatinumHeritage", "StarPlatinumStoneOcean", "TheWorldHeritage","TheWorldOVA"}
             getgenv().StandFarm = Value
             while getgenv().StandFarm do
                 if mystand == getgenv().WantedStand then
@@ -370,6 +373,16 @@ if game.PlaceId == 5910449407 then
                         Image = "",
                         Time = 5
                     })
+                elseif getgenv().StopOnAnyShynie == true then
+                    if mystand == shynie then
+                        --StandFarmToggle:Set(false)
+                        getgenv().StandFarm = false
+                        OrionLib:MakeNotification({
+                            Name = "Stand Farm",
+                            Content = "Stand Farm stoped because you find a shynie stand!",
+                            Image = "",
+                            Time = 5
+                        })
                 else
                     local function GetStand()
                         if mystand == "None" then
@@ -391,10 +404,34 @@ if game.PlaceId == 5910449407 then
                         end
                     end
                     GetStand()
-                    wait(7)
+                    end
                 end
+                wait(7)
             end
         end
+    })
+
+    Tab:AddToggle({
+        Name = "Stop on any shynie",
+        Default = false,
+        Callback = function(Value)
+            getgenv().StopOnAnyShynie = Value
+            while getgenv().StopOnAnyShynie do
+                if getgenv().StandFarm == true then
+                    if mystand == shynie then
+                        StandFarmToggle:Set(false)
+                        getgenv().StandFarm = false
+                        OrionLib:MakeNotification({
+                            Name = "Stand Farm",
+                            Content = "Stand Farm stoped because you find a shynie stand!",
+                            Image = "",
+                            Time = 5
+                        })
+                    end
+                end
+                wait()
+            end
+        end    
     })
     local Tab = Window:MakeTab({
         Name = "Mob Farm",
@@ -499,7 +536,7 @@ if game.PlaceId == 5910449407 then
         end    
     })
     local Section = Tab:AddSection({
-        Name = "Skills"
+        Name = "Auto Skills"
     })
     Tab:AddToggle({
         Name = "Auto Skills",
@@ -507,6 +544,9 @@ if game.PlaceId == 5910449407 then
         Callback = function(Value)
             getgenv().AutoSkills = Value
         end    
+    })
+    local Section = Tab:AddSection({
+        Name = "Skills"
     })
     Tab:AddToggle({
         Name = "LMB",
