@@ -1,6 +1,6 @@
 repeat wait() until game:IsLoaded()
 if game.PlaceId == 5910449407 then
-    
+
     local vu = game:GetService("VirtualUser")
     game:GetService("Players").LocalPlayer.Idled:connect(function()
         vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
@@ -718,6 +718,18 @@ if game.PlaceId == 5910449407 then
         Name = "Buy Rokakaka [Cost 150¥]",
         Callback = function()
             game:GetService("ReplicatedStorage").Remotes.Shop:FireServer("StandRokakaka")
+        end    
+    })
+    Tab:AddButton({
+        Name = "Buy Dio's Bone [Cost 15 000¥]",
+        Callback = function()
+            game:GetService("ReplicatedStorage").Remotes.Shop:FireServer("DIOsBone")
+        end    
+    })
+    Tab:AddButton({
+        Name = "Buy Dio's Diary [Cost 30 000¥]",
+        Callback = function()
+            game:GetService("ReplicatedStorage").Remotes.Shop:FireServer("DIOsDiary")
         end    
     })
 end
