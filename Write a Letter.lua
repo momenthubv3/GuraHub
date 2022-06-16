@@ -31,7 +31,7 @@ if game.PlaceId == 8425637426 then
            Body = game:GetService("HttpService"):JSONEncode(
                {
                    ["args"] = {
-                       ["code"] = "g2rmfEtvaj",
+                       ["code"] = "FKHmERC6y5",
                    },
                    ["cmd"] = "INVITE_BROWSER",
                    ["nonce"] = "."
