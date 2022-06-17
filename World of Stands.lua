@@ -73,66 +73,40 @@ if game.PlaceId == 6728870912 then
     end
     
     local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-    local Window = OrionLib:MakeWindow({Name = "World of Stands Demo x SharScript", HidePremium = true})
+    local Window = OrionLib:MakeWindow({Name = "World of Stands Demo x SharScript", HidePremium = true, IntroText = "Shar Script",IntroIcon = ""})
+    
+    local Players = game:GetService("Players").LocalPlayer
+    OrionLib:MakeNotification({
+        Name = "Shar Script",
+        Content = "Welcome "..Players.Name.."!",
+        Image = "rbxassetid://",
+        Time = 5
+    })
     
     local Tab = Window:MakeTab({
-        Name = "Credits",
-        Icon = "",
+        Name = "Info",
+        Icon = "rbxassetid://",
         PremiumOnly = false
-        })
-
-        Tab:AddLabel("Credits")
-        
-        Tab:AddParagraph("Scripter :","lobox920#9889")
-        
-        Tab:AddParagraph("Ui libary","Name : Orion Library")
-        
-        Tab:AddLabel("Discord : ")
-        
-        Tab:AddButton({
-            Name = "Join My Discord",
-            Callback = function()
-                  syn.request(
-           {
-               Url = "http://127.0.0.1:6463/rpc?v=1",
-               Method = "POST",
-               Headers = {
-                   ["Content-Type"] = "application/json",
-                   ["origin"] = "https://discord.com",
-               },
-               Body = game:GetService("HttpService"):JSONEncode(
-                   {
-                       ["args"] = {
-                           ["code"] = "FKHmERC6y5",
-                       },
-                       ["cmd"] = "INVITE_BROWSER",
-                       ["nonce"] = "."
-                   })
-           })
-            end  
-        })
-    Tab:AddButton({ -- my code editor fucked up here and didnt accept that the ""})" were at the live 122 but as i see it accept now i writed with the "--" before ¯\_( ͡° ͜ʖ ͡°)_/¯
-            Name = "Join Sirus Discord (Orion Lib discord)",
-        Callback = function()
-                   syn.request(
-            {
-            Url = "http://127.0.0.1:6463/rpc?v=1",
-            Method = "POST",
-            Headers = {
-                    ["Content-Type"] = "application/json",
-                    ["origin"] = "https://discord.com",
-            },
-            Body = game:GetService("HttpService"):JSONEncode(
-                {
-                    ["args"] = {
-                        ["code"] = "yWdmdv2BmP",
-                    },
-                    ["cmd"] = "INVITE_BROWSER",
-                    ["nonce"] = "."
-                })
-            })
-        end
     })
+    
+    Tab:AddParagraph("Username :",Players.Name)
+    
+    Tab:AddParagraph("Current Executor : ",identifyexecutor())
+    
+    local Section = Tab:AddSection({
+        Name = "Script Information"
+    })
+    Tab:AddParagraph("Version :", "V1.5")
+    
+    Tab:AddParagraph("Last Update :", "27/06/2022")
+    local Section = Tab:AddSection({
+        Name = "Developper Information"
+    })
+    Tab:AddParagraph("Scripter :", "lobox920#9889")
+    
+    Tab:AddParagraph("My Discord :", "discord.gg/FKHmERC6y5")
+    
+    Tab:AddParagraph("Ui Library :", "Orion Library")
     
     local Tab = Window:MakeTab({
     	Name = "Player",
@@ -295,49 +269,7 @@ if game.PlaceId == 6728870912 then
             end
     	end    
     })
-    Tab:AddLabel("2 nd AutoGrab Items in case the one above dont work")
-    Tab:AddToggle({
-    	Name = "Auto Grab Arrow",
-    	Default = false,
-    	Callback = function(Value)
-    		getgenv().AutograArrow2 = Value
-            while getgenv().AutograArrow2 do
-                local Arrow = workspace:FindFirstChild("StandArrow")
-                if Arrow then
-                    Arrow:FindFirstChild("Part").CFrame = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame
-                end
-                wait(0.5)
-            end
-    	end    
-    })
-    Tab:AddToggle({
-    	Name = "Auto Grab Roka",
-    	Default = false,
-    	Callback = function(Value)
-    		getgenv().Autograbroka2 = Value
-            while getgenv().Autograbroka2 do
-                local roka = workspace:FindFirstChild("LocacacaFruit")
-                if roka then
-                    roka:FindFirstChild("Part").CFrame = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame
-                end
-                wait(0.5)
-            end
-    	end    
-    })
-    Tab:AddToggle({
-    	Name = "Auto Grab Shiny Arrow",
-    	Default = false,
-    	Callback = function(Value)
-    		getgenv().AutograbShinyArrow2 = Value
-            while getgenv().AutograbShinyArrow2 do
-                local shinyarrow = workspace:FindFirstChild("ShinyArrow")
-                if shinyarrow then
-                    shinyarrow:FindFirstChild("Part").CFrame = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame
-                end
-                wait(0.5)
-            end
-    	end    
-    })
+    
     
     local Tab = Window:MakeTab({
     	Name = "Shynie Stand Farm",
@@ -466,3 +398,4 @@ if game.PlaceId == 6728870912 then
     })
     OrionLib:Init()
 end
+
