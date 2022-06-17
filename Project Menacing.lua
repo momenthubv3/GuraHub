@@ -381,7 +381,6 @@ if game.PlaceId == 5910449407 then
         Default = false,
         Callback = function(Value)
             mystand = game:GetService("Players").LocalPlayer.Data.Stand.Value
-            shynie = {"DirtyDeeds", "WhitesnakeHeritage", "StarPlatinumOVA", "StarPlatinumHeritage", "StarPlatinumStoneOcean", "TheWorldHeritage","TheWorldOVA"}
             getgenv().StandFarm = Value
             while getgenv().StandFarm do
                 if mystand == getgenv().WantedStand then
@@ -394,17 +393,6 @@ if game.PlaceId == 5910449407 then
                         Image = "",
                         Time = 5
                     })
-                elseif getgenv().StopOnAnyShynie == true then
-                    if mystand == shynie or getgenv().WantedStand then
-                        --StandFarmToggle:Set(false)
-                        getgenv().StandFarm = false
-                        OrionLib:MakeNotification({
-                            Name = "Stand Farm",
-                            Content = "Stand Farm stoped because you find a Shynie stand or the Wanted Stand!",
-                            Image = "",
-                            Time = 5
-                        })
-                    end
                 else
                     local function GetStand()
                         if mystand == "None" then
@@ -430,29 +418,6 @@ if game.PlaceId == 5910449407 then
                 wait(7)
             end
         end
-    })
-
-    Tab:AddToggle({
-        Name = "Stop on any shynie",
-        Default = false,
-        Callback = function(Value)
-            getgenv().StopOnAnyShynie = Value
-            while getgenv().StopOnAnyShynie do
-                if getgenv().StandFarm == true then
-                    if mystand == shynie then
-                        StandFarmToggle:Set(false)
-                        getgenv().StandFarm = false
-                        OrionLib:MakeNotification({
-                            Name = "Stand Farm",
-                            Content = "Stand Farm stoped because you find a shynie stand!",
-                            Image = "",
-                            Time = 5
-                        })
-                    end
-                end
-                wait()
-            end
-        end    
     })
     local Tab = Window:MakeTab({
         Name = "Mob Farm",
