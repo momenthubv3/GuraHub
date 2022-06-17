@@ -395,15 +395,16 @@ if game.PlaceId == 5910449407 then
                         Time = 5
                     })
                 elseif getgenv().StopOnAnyShynie == true then
-                    if mystand == shynie then
+                    if mystand == shynie or getgenv().WantedStand then
                         --StandFarmToggle:Set(false)
                         getgenv().StandFarm = false
                         OrionLib:MakeNotification({
                             Name = "Stand Farm",
-                            Content = "Stand Farm stoped because you find a shynie stand!",
+                            Content = "Stand Farm stoped because you find a Shynie stand or the Wanted Stand!",
                             Image = "",
                             Time = 5
                         })
+                    end
                 else
                     local function GetStand()
                         if mystand == "None" then
@@ -425,7 +426,6 @@ if game.PlaceId == 5910449407 then
                         end
                     end
                     GetStand()
-                    end
                 end
                 wait(7)
             end
@@ -889,8 +889,8 @@ if game.PlaceId == 5910449407 then
         end
     end)
 end
-    --[[
-     Stand List : -- First Value is the data value and second is the name showed
+--[[
+    Stand List : -- First Value is the data value and second is the name showed
      
     return {
         None = "None", 
@@ -921,4 +921,4 @@ end
         DirtyDeeds = "Dirty Deeds", 
         DirtyDeedsLT = "Dirty Deeds: Love Train"
     };
-    ]]
+]]
