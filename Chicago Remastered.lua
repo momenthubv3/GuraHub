@@ -94,7 +94,40 @@ ESP.Names = false
 
 
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({Name = "Chicago Remastered x SharScript", HidePremium = true, SaveConfig = true, ConfigFolder = "Shar Script"})
+local Window = OrionLib:MakeWindow({Name = "Chicago Remastered x SharScript", HidePremium = true, SaveConfig = true, ConfigFolder = "Shar Script",IntroText = "Shar Script",IntroIcon = ""})
+
+local Players = game:GetService("Players").LocalPlayer
+OrionLib:MakeNotification({
+	Name = "Shar Script",
+	Content = "Welcome "..Players.Name.."!",
+	Image = "rbxassetid://",
+	Time = 5
+})
+
+local Tab = Window:MakeTab({
+	Name = "Info",
+	Icon = "rbxassetid://",
+	PremiumOnly = false
+})
+
+Tab:AddParagraph("Username :",Players.Name)
+
+Tab:AddParagraph("Current Executor : ",identifyexecutor())
+
+local Section = Tab:AddSection({
+	Name = "Script Information"
+})
+Tab:AddParagraph("Version :", "V1.2.4")
+
+Tab:AddParagraph("Last Update :", "27/06/2022")
+local Section = Tab:AddSection({
+	Name = "Developper Information"
+})
+Tab:AddParagraph("Scripter :", "lobox920#9889")
+
+Tab:AddParagraph("My Discord :", "discord.gg/FKHmERC6y5")
+
+Tab:AddParagraph("Ui Library :", "Orion Library")
 
 local Tab = Window:MakeTab({
 	Name = "Player",
@@ -774,7 +807,7 @@ local Tab = Window:MakeTab({
 })
 Tab:AddLabel("Bank Dealer")
 
-Tab:AddButton({
+Tab:AddButton({ --)
 	Name = "Buy Duffel Bag (Cost 50$)",
 	Callback = function()
 
@@ -809,7 +842,7 @@ Tab:AddButton({
 	end
 end    
 })
-Tab:AddButton({
+Tab:AddButton({ --)
 	Name = "Buy C4 (Cost 3500$)",
 	Callback = function()
 
@@ -848,7 +881,7 @@ end
 Tab:AddLabel("Buy Gun")
 
 ----------------------------------------------------------------- GUN
-Tab:AddButton({
+Tab:AddButton({ --)
 	Name = "Buy Ruger LCP (Cost 2500$)",
 	Callback = function()
 		if game.Players.LocalPlayer.Data.Stats.Cash.Value >= 2500 then
@@ -883,7 +916,7 @@ Tab:AddButton({
 end 
 
 })
-Tab:AddButton({
+Tab:AddButton({ --)
 	Name = "Buy Makarov (Cost 2750$)",
 	Callback = function()
 
@@ -918,7 +951,7 @@ Tab:AddButton({
 	end
 end    
 })
-Tab:AddButton({
+Tab:AddButton({ --)
 	Name = "Buy G26 (Cost 2900$)",
 	Callback = function()
 
@@ -954,7 +987,7 @@ Tab:AddButton({
 	end
 end    
 })
-Tab:AddButton({
+Tab:AddButton({ --)
 	Name = "Buy G17 (Cost 3000$)",
 	Callback = function()	
 		
@@ -988,7 +1021,7 @@ Tab:AddButton({
 	end
 end      
 })
-Tab:AddButton({
+Tab:AddButton({ --)
 	Name = "Buy Berreta M9 (Cost 3500$)",
 	Callback = function()
 		
@@ -1023,7 +1056,7 @@ Tab:AddButton({
 	end
 end    
 })
-Tab:AddButton({
+Tab:AddButton({ --)
 	Name = "Buy 1911 (Cost 4000$)",
 	Callback = function()
 		
@@ -1058,7 +1091,7 @@ Tab:AddButton({
 	end
 end      
 })
-Tab:AddButton({
+Tab:AddButton({ --)
 	Name = "Buy G20 (Cost 5000$)",
 	Callback = function()
 
@@ -1094,7 +1127,7 @@ Tab:AddButton({
 	end
 end    
 })
-Tab:AddButton({
+Tab:AddButton({ --)
 	Name = "Buy Body Armor (Cost 20000$)",
 	Callback = function()
 
@@ -1133,7 +1166,7 @@ end
 
 Tab:AddLabel("Mask")
 
-Tab:AddButton({
+Tab:AddButton({ --)
 	Name = "Buy Shiesty Mask (Cost 25$)",
 	Callback = function()
 
@@ -1168,7 +1201,7 @@ Tab:AddButton({
 	end
 end      
 })
-Tab:AddButton({
+Tab:AddButton({ --)
 	Name = "Buy Open Balaclava Mask (Cost 25$)",
 	Callback = function()
 
@@ -1205,7 +1238,7 @@ end
 })
 
 
-Tab:AddButton({
+Tab:AddButton({ --)
 	Name = "Buy Balaclava Mask (Cost 25$)",
 	Callback = function()
 
@@ -1241,7 +1274,7 @@ Tab:AddButton({
 end        
 })
 
-Tab:AddButton({
+Tab:AddButton({ --)
 	Name = "Buy Surgical White Mask (Cost 6$)",
 	Callback = function()
 
@@ -1277,7 +1310,7 @@ Tab:AddButton({
 end       
 })
 
-Tab:AddButton({
+Tab:AddButton({ --)
 	Name = "Buy Surgical Black Mask (Cost 6$)",
 	Callback = function()
 
@@ -1317,7 +1350,7 @@ end
 
 Tab:AddLabel("Food")
 
-Tab:AddButton({
+Tab:AddButton({ --)
 	Name = "Buy Water (Cost 15$)",
 	Callback = function()
 		if game.Players.LocalPlayer.Data.Stats.Cash.Value >= 15 then
@@ -1351,7 +1384,7 @@ Tab:AddButton({
 end    
 })
 
-Tab:AddButton({
+Tab:AddButton({ --)
 	Name = "Buy Bloxy Cola (Cost 10$)",
 	Callback = function()
 
@@ -1385,7 +1418,7 @@ Tab:AddButton({
 	end
 end      
 })
-Tab:AddButton({
+Tab:AddButton({ --)
 	Name = "Buy Burger (Cost 15$)",
 	Callback = function()
 
@@ -1521,18 +1554,6 @@ Tab:AddButton({
 })
 
 
-Tab:AddButton({
-	Name = "Gun No Recoil [PATCHED]",
-	Callback = function()
-				
-	OrionLib:MakeNotification({
-	Name = "No Recoil Info",
-	Content = "The No Recoil is currently Parched!",
-	Image = "rbxassetid://4483345998",
-	Time = 5
-})
-	end    
-})
 
 Tab:AddLabel("Aimlock")
 
@@ -2036,101 +2057,11 @@ Tab:AddButton({
 
 
 
-local Tab = Window:MakeTab({
-	Name = "Credits",
-	Icon = "",
-	PremiumOnly = false
-})
 
-Tab:AddLabel("Credits")
-
-Tab:AddParagraph("Scripter :","Made by lobox920#9889")
-
-Tab:AddParagraph("Ui libary","Name : Orion Libary by shlex")
-
-Tab:AddParagraph("No Recoil","Made by xaxa#1414")
-
-Tab:AddParagraph("ESP","Made by garfield#9172 from Criminality Open Source")
-
-Tab:AddLabel("Discord")
-
-Tab:AddButton({
-	Name = "Join My Discord",
-	Callback = function()
-      	syn.request(
-   {
-       Url = "http://127.0.0.1:6463/rpc?v=1",
-       Method = "POST",
-       Headers = {
-           ["Content-Type"] = "application/json",
-           ["origin"] = "https://discord.com",
-       },
-       Body = game:GetService("HttpService"):JSONEncode(
-           {
-               ["args"] = {
-                   ["code"] = "FKHmERC6y5",
-               },
-               ["cmd"] = "INVITE_BROWSER",
-               ["nonce"] = "."
-           })
-   })
-	end  
-})
-
-Tab:AddButton({
-	Name = "Join Sirus Discord (Orion Lib discord)",
-	Callback = function()
-      	syn.request(
-   {
-       Url = "http://127.0.0.1:6463/rpc?v=1",
-       Method = "POST",
-       Headers = {
-           ["Content-Type"] = "application/json",
-           ["origin"] = "https://discord.com",
-       },
-       Body = game:GetService("HttpService"):JSONEncode(
-           {
-               ["args"] = {
-                   ["code"] = "yWdmdv2BmP",
-               },
-               ["cmd"] = "INVITE_BROWSER",
-               ["nonce"] = "."
-           })
-   })
-	end  
-})
-Tab:AddButton({
-	Name = "Join Bird Hub Discord",
-	Callback = function()
-      	syn.request(
-   {
-       Url = "http://127.0.0.1:6463/rpc?v=1",
-       Method = "POST",
-       Headers = {
-           ["Content-Type"] = "application/json",
-           ["origin"] = "https://discord.com",
-       },
-       Body = game:GetService("HttpService"):JSONEncode(
-           {
-               ["args"] = {
-                   ["code"] = "EzPMTEnAqy",
-               },
-               ["cmd"] = "INVITE_BROWSER",
-               ["nonce"] = "."
-           })
-   })
-	end  
-})
 
 
 ------------------
 
-
-OrionLib:MakeNotification({
-	Name = "Last Update : 12/06/2022",
-	Content = "Changed : Tp to player is Improved",
-	Time = 10
-})
 
 
 
