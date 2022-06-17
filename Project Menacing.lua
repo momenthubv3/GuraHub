@@ -19,7 +19,7 @@ if game.PlaceId == 5910449407 then
             BuildPart.Position = Vector3.new(0, 10000,0)      --The Position of The Part
             BuildPart.Anchored = true                             --Anchores The Part
             BuildPart.Parent = game:GetService("Workspace").Terrain
-            wait(0.2)
+            wait(0.5)
             game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(0, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {CFrame = CFrame.new(-0.222938702, 100003.477, 0.165179446, -1, 0, 0, 0, 1, 0, 0, 0, -1)}):Play()
         end
     end
@@ -793,6 +793,101 @@ if game.PlaceId == 5910449407 then
             game:GetService("ReplicatedStorage").Remotes.Shop:FireServer("DIOsDiary")
         end    
     })
+    local Tab = Window:MakeTab({
+        Name = "Misc",
+        Icon = "",
+        PremiumOnly = false
+    })
+    Tab:AddTextbox({
+        Name = "Notify using Webhook When Boss has spawned [Dio or Pucchi]", --
+        Default = "",
+        TextDisappear = false,
+        Callback = function(Value)
+            getgenv().getgenv().BossSpawnWebhook = Value
+        end	  
+    })
+    Tab:AddButton({
+        Name = "Test Webhook",
+        Callback = function()
+            url = getgenv().BossSpawnWebhook
+            local data = {
+               ["content"] = "",
+               ["embeds"] = {
+                   {
+                       ["title"] = "**Boss Has Spawned!**",
+                       ["description"] = "**BossNameHere** Has Spawned in the server of : " .. game.Players.LocalPlayer.Name.."",
+                       ["type"] = "rich",
+                       ["color"] = tonumber(0x7269da),
+                       ["image"] = {
+                           ["url"] = ""
+                       }
+                   }
+               }
+            }
+            local newdata = game:GetService("HttpService"):JSONEncode(data)
+            
+            local headers = {
+               ["content-type"] = "application/json"
+            }
+            request = http_request or request or HttpPost or syn.request
+            local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
+            request(abcdef)
+        end    
+    })
+    workspace.Alive.ChildAdded:Connect(function(child)
+        if child.Name == "DIO" then
+            local url = getgenv().BossSpawnWebhook
+            local data = {
+               ["content"] = "",
+               ["embeds"] = {
+                   {
+                       ["title"] = "**Dio Has Spawned!**",
+                       ["description"] = "**DIO** Has Spawned in the server of : " .. game.Players.LocalPlayer.Name.."",
+                       ["type"] = "rich",
+                       ["color"] = tonumber(0x7269da),
+                       ["image"] = {
+                           ["url"] = ""
+                       }
+                   }
+               }
+            }
+            local newdata = game:GetService("HttpService"):JSONEncode(data)
+            
+            local headers = {
+               ["content-type"] = "application/json"
+            }
+            request = http_request or request or HttpPost or syn.request
+            local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
+            request(abcdef)
+        end
+    end)
+    workspace.Alive.ChildAdded:Connect(function(child)
+        if child.Name == "Pucchi" then
+            local url = getgenv().BossSpawnWebhook
+            local data = {
+               ["content"] = "",
+               ["embeds"] = {
+                   {
+                       ["title"] = "**Pucchi Has Spawned!**",
+                       ["description"] = "**Pucchi** Has Spawned in the server of : " .. game.Players.LocalPlayer.Name.."",
+                       ["type"] = "rich",
+                       ["color"] = tonumber(0x7269da),
+                       ["image"] = {
+                           ["url"] = ""
+                       }
+                   }
+               }
+            }
+            local newdata = game:GetService("HttpService"):JSONEncode(data)
+            
+            local headers = {
+               ["content-type"] = "application/json"
+            }
+            request = http_request or request or HttpPost or syn.request
+            local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
+            request(abcdef)
+        end
+    end)
 end
     --[[
      Stand List : -- First Value is the data value and second is the name showed
