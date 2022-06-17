@@ -3,65 +3,39 @@ if game.PlaceId == 8425637426 then
    local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
    local Window = OrionLib:MakeWindow({Name = "Write a Letter x SharScript", HidePremium = true})
    
+   local Players = game:GetService("Players").LocalPlayer
+   OrionLib:MakeNotification({
+       Name = "Shar Script",
+       Content = "Welcome "..Players.Name.."!",
+       Image = "rbxassetid://",
+       Time = 5
+   })
+   
    local Tab = Window:MakeTab({
-    Name = "Credits",
-    Icon = "",
-    PremiumOnly = false
-    })
-    
-    Tab:AddLabel("Credits")
-    
-    Tab:AddParagraph("Scripter :","lobox920#9889")
-    
-    Tab:AddParagraph("Ui libary","Name : Orion Library")
-    
-    Tab:AddLabel("Discord : ")
-    
-    Tab:AddButton({
-        Name = "Join My Discord",
-        Callback = function()
-              syn.request(
-       {
-           Url = "http://127.0.0.1:6463/rpc?v=1",
-           Method = "POST",
-           Headers = {
-               ["Content-Type"] = "application/json",
-               ["origin"] = "https://discord.com",
-           },
-           Body = game:GetService("HttpService"):JSONEncode(
-               {
-                   ["args"] = {
-                       ["code"] = "FKHmERC6y5",
-                   },
-                   ["cmd"] = "INVITE_BROWSER",
-                   ["nonce"] = "."
-               })
-       })
-        end  
-    })
-    
-    Tab:AddButton({
-        Name = "Join Sirus Discord (Orion Lib discord)",
-        Callback = function()
-              syn.request(
-       {
-           Url = "http://127.0.0.1:6463/rpc?v=1",
-           Method = "POST",
-           Headers = {
-               ["Content-Type"] = "application/json",
-               ["origin"] = "https://discord.com",
-           },
-           Body = game:GetService("HttpService"):JSONEncode(
-               {
-                   ["args"] = {
-                       ["code"] = "yWdmdv2BmP",
-                   },
-                   ["cmd"] = "INVITE_BROWSER",
-                   ["nonce"] = "."
-               })
-       })
-        end  
-    })
+       Name = "Info",
+       Icon = "rbxassetid://",
+       PremiumOnly = false
+   })
+   
+   Tab:AddParagraph("Username :",Players.Name)
+   
+   Tab:AddParagraph("Current Executor : ",identifyexecutor())
+   
+   local Section = Tab:AddSection({
+       Name = "Script Information"
+   })
+   Tab:AddParagraph("Version :", "V1.1.2")
+   
+   Tab:AddParagraph("Last Update :", "27/06/2022")
+   local Section = Tab:AddSection({
+       Name = "Developper Information"
+   })
+   Tab:AddParagraph("Scripter :", "lobox920#9889")
+   
+   Tab:AddParagraph("My Discord :", "discord.gg/FKHmERC6y5")
+   
+   Tab:AddParagraph("Ui Library :", "Orion Library")
+
    local Tab = Window:MakeTab({
    	Name = "Emotes",
    	Icon = "",
