@@ -53,7 +53,7 @@ if game.PlaceId == 5910449407 then
     })
     Tab:AddParagraph("Version :", "V1.7.3")
     
-    Tab:AddParagraph("Last Update :", "17/06/2022")
+    Tab:AddParagraph("Last Update :", "20/06/2022")
     local Section = Tab:AddSection({
         Name = "Developper Information"
     })
