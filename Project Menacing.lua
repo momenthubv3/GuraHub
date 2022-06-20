@@ -51,7 +51,7 @@ if game.PlaceId == 5910449407 then
     local Section = Tab:AddSection({
         Name = "Script Information"
     })
-    Tab:AddParagraph("Version :", "V1.7.3")
+    Tab:AddParagraph("Version :", "V1.7.4")
     
     Tab:AddParagraph("Last Update :", "20/06/2022")
     local Section = Tab:AddSection({
@@ -309,6 +309,15 @@ if game.PlaceId == 5910449407 then
             end
         end    
     })
+    local Section = Tab:AddSection({
+        Name = "Misc Option"
+    })
+    Tab:AddButton({
+        Name = "Froze Character[Use this if u afk for long time]",
+        Callback = function()
+            game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Anchored = true
+        end    
+    })
     local Tab = Window:MakeTab({
         Name = "Stand Farm",
         Icon = "",
@@ -330,7 +339,6 @@ if game.PlaceId == 5910449407 then
                 getgenv().WantedStand = "TheWorldOVA"
             end
             if Wantstand == "Star Platinum" then
-                
                 getgenv().WantedStand = "StarPlatinumPrime"
             end
             if Wantstand == "Star Platinum Stone Ocean" then
@@ -357,6 +365,8 @@ if game.PlaceId == 5910449407 then
             if Wantstand == "Dirty Deeds" then
                 getgenv().WantedStand = "DirtyDeeds"
             end
+            -- Yeah the Webhook will fuck if the name of the stand is not a decent name and not the actual value (Only for user visual ngl)
+            getgenv().WebhookStand = Value
         end    
     })
     local StandFarmToggle = Tab:AddToggle({
@@ -376,6 +386,31 @@ if game.PlaceId == 5910449407 then
                         Image = "",
                         Time = 5
                     })
+                    if NotifyUsingWebhook == true then
+                            local url = getgenv().MyWebhook
+                            local data = {
+                               ["content"] = "",
+                               ["embeds"] = {
+                                   {
+                                       ["title"] = "**"..game:GetService("Players").LocalPlayer.Name.." Has Obtained a stand!**",
+                                       ["description"] = "```"..game:GetService("Players").LocalPlayer.Name.." Obtained : "..getgenv().WebhookStand.."```",
+                                       ["type"] = "rich",
+                                       ["color"] = tonumber(0x7269da),
+                                       ["image"] = {
+                                           ["url"] = ""
+                                       }
+                                   }
+                               }
+                            }
+                            local newdata = game:GetService("HttpService"):JSONEncode(data)
+                            
+                            local headers = {
+                               ["content-type"] = "application/json"
+                            }
+                            request = http_request or request or HttpPost or syn.request
+                            local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
+                            request(abcdef)
+                    end
                 else
                     if mystand == getgenv().StandFarm then
                         print("Have wanted stand!")
@@ -412,6 +447,24 @@ if game.PlaceId == 5910449407 then
                 end
             end
         end
+    })
+    local Section = Tab:AddSection({
+        Name = "Webhook"
+    })
+    Tab:AddTextbox({
+        Name = "Webhook",
+        Default = "",
+        TextDisappear = false,
+        Callback = function(Value)
+            getgenv().MyWebhook = Value
+        end	  
+    })
+    Tab:AddToggle({
+        Name = "Notify",
+        Default = false,
+        Callback = function(Value)
+            getgenv().NotifyUsingWebhook = Value
+        end    
     })
     
     local Tab = Window:MakeTab({
@@ -753,101 +806,6 @@ if game.PlaceId == 5910449407 then
             game:GetService("ReplicatedStorage").Remotes.Shop:FireServer("DIOsDiary")
         end    
     })
-    local Tab = Window:MakeTab({
-        Name = "Misc",
-        Icon = "",
-        PremiumOnly = false
-    })
-    Tab:AddTextbox({
-        Name = "Notify using Webhook When Boss has spawned [Dio or Pucchi]", --
-        Default = "",
-        TextDisappear = false,
-        Callback = function(Value)
-            getgenv().getgenv().BossSpawnWebhook = Value
-        end	  
-    })
-    Tab:AddButton({
-        Name = "Test Webhook",
-        Callback = function()
-            url = getgenv().BossSpawnWebhook
-            local data = {
-               ["content"] = "",
-               ["embeds"] = {
-                   {
-                       ["title"] = "**Boss Has Spawned!**",
-                       ["description"] = "**BossNameHere** Has Spawned in the server of : " .. game.Players.LocalPlayer.Name.."",
-                       ["type"] = "rich",
-                       ["color"] = tonumber(0x7269da),
-                       ["image"] = {
-                           ["url"] = ""
-                       }
-                   }
-               }
-            }
-            local newdata = game:GetService("HttpService"):JSONEncode(data)
-            
-            local headers = {
-               ["content-type"] = "application/json"
-            }
-            request = http_request or request or HttpPost or syn.request
-            local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
-            request(abcdef)
-        end    
-    })
-    workspace.Alive.ChildAdded:Connect(function(child)
-        if child.Name == "DIO" then
-            local url = getgenv().BossSpawnWebhook
-            local data = {
-               ["content"] = "",
-               ["embeds"] = {
-                   {
-                       ["title"] = "**Dio Has Spawned!**",
-                       ["description"] = "**DIO** Has Spawned in the server of : " .. game.Players.LocalPlayer.Name.."",
-                       ["type"] = "rich",
-                       ["color"] = tonumber(0x7269da),
-                       ["image"] = {
-                           ["url"] = ""
-                       }
-                   }
-               }
-            }
-            local newdata = game:GetService("HttpService"):JSONEncode(data)
-            
-            local headers = {
-               ["content-type"] = "application/json"
-            }
-            request = http_request or request or HttpPost or syn.request
-            local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
-            request(abcdef)
-        end
-    end)
-    workspace.Alive.ChildAdded:Connect(function(child)
-        if child.Name == "Pucchi" then
-            local url = getgenv().BossSpawnWebhook
-            local data = {
-               ["content"] = "",
-               ["embeds"] = {
-                   {
-                       ["title"] = "**Pucchi Has Spawned!**",
-                       ["description"] = "**Pucchi** Has Spawned in the server of : " .. game.Players.LocalPlayer.Name.."",
-                       ["type"] = "rich",
-                       ["color"] = tonumber(0x7269da),
-                       ["image"] = {
-                           ["url"] = ""
-                       }
-                   }
-               }
-            }
-            local newdata = game:GetService("HttpService"):JSONEncode(data)
-            
-            local headers = {
-               ["content-type"] = "application/json"
-            }
-            request = http_request or request or HttpPost or syn.request
-            local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
-            request(abcdef)
-        end
-    end)
 end
 --[[
     Stand List : -- First Value is the data value and second is the name showed
