@@ -51,7 +51,7 @@ if game.PlaceId == 5910449407 then
     local Section = Tab:AddSection({
         Name = "Script Information"
     })
-    Tab:AddParagraph("Version :", "V1.7.1")
+    Tab:AddParagraph("Version :", "V1.7.3")
     
     Tab:AddParagraph("Last Update :", "17/06/2022")
     local Section = Tab:AddSection({
@@ -318,43 +318,54 @@ if game.PlaceId == 5910449407 then
     Tab:AddDropdown({
         Name = "Chose Wanted Stand",
         Default = "",
-        Options = {"The World", "The World Heritage", "The World OVA", "Star Platinum","Star Platinum The World", "Star Platinum Stone Ocean", "Star Platinum Heritage", "Star Platinum OVA", "WhiteSnake", "Whitesnake Deimos", "D4C", "Dirty Deeds"},
-        Callback = function(Value)
-            if Value == "The World" then
+        Options = {"The World", "The World Heritage", "The World OVA", "Star Platinum","Star Platinum The World", "Star Platinum Stone Ocean", "Star Platinum Heritage", "Star Platinum OVA", "WhiteSnake", "Whitesnake Heritage", "D4C", "Dirty Deeds"},
+        Callback = function(Wantstand)
+            if Wantstand == "The World" then
                 getgenv().WantedStand = "TheWorld"
-            elseif Value == "The World Heritage" then
+            end
+            if Wantstand == "The World Heritage" then
                 getgenv().WantedStand = "TheWorldHeritage"
-            elseif Value == "The World OVA" then
+            end
+            if Wantstand == "The World OVA" then
                 getgenv().WantedStand = "TheWorldOVA"
-            elseif Value == "Star Platinum" then
+            end
+            if Wantstand == "Star Platinum" then
+                
                 getgenv().WantedStand = "StarPlatinumPrime"
-            elseif Value == "Star Platinum Stone Ocean" then
+            end
+            if Wantstand == "Star Platinum Stone Ocean" then
                 getgenv().WantedStand = "StarPlatinumStoneOcean"
-            elseif Value == "Star Platinum The World" then
+            end
+            if Wantstand == "Star Platinum The World" then
                 getgenv().WantedStand = "StarPlatinumTheWorld"
-            elseif Value == "Star Platinum Heritage" then
+            end
+            if Wantstand == "Star Platinum Heritage" then
                 getgenv().WantedStand = "StarPlatinumHeritage"
-            elseif Value == "Star Platinum OVA" then
+            end
+            if Wantstand == "Star Platinum OVA" then
                 getgenv().WantedStand = "StarPlatinumOVA"
-            elseif Value == "Whitesnake" then
-                getgenv().WantedStand = "Whitesnake"        
-            elseif Value == "Whitesnake Deimos" then
+            end
+            if Wantstand == "Whitesnake" then
+                getgenv().WantedStand = "Whitesnake"
+            end     
+            if Wantstand == "Whitesnake Heritage" then
                 getgenv().WantedStand = "WhitesnakeHeritage"
-            elseif Value == "D4C" then
+            end
+            if Wantstand == "D4C" then
                 getgenv().WantedStand = "D4C"
-            elseif Value == "Dirty Deeds" then
+            end
+            if Wantstand == "Dirty Deeds" then
                 getgenv().WantedStand = "DirtyDeeds"
             end
-            --print(Value)
         end    
     })
     local StandFarmToggle = Tab:AddToggle({
         Name = "Stand Farm [ONLY REQUIRE ARROW!]",
         Default = false,
         Callback = function(Value)
-            mystand = game:GetService("Players").LocalPlayer.Data.Stand.Value
             getgenv().StandFarm = Value
             while getgenv().StandFarm do
+                mystand = game:GetService("Players").LocalPlayer.Data.Stand.Value
                 if mystand == getgenv().WantedStand then
                     print("Have wanted stand!")
                     --StandFarmToggle:Set(false) I cant use it because it wont work and say nil value due because it only will work if its used right the toggle like a button or something ;-;
@@ -377,7 +388,7 @@ if game.PlaceId == 5910449407 then
                         })
                         else
                             local function GetStand()
-                                    if mystand == "None" then
+                                if mystand == "None" then
                                         --print("Dont have stand")
                                         local Arrow = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("StandArrow")
                                         if Arrow then
@@ -386,16 +397,6 @@ if game.PlaceId == 5910449407 then
                                             game:GetService("ReplicatedStorage").Remotes.ItemUsage:FireServer("StandArrow")
                                         end
                                     else
-                                        if mystand == getgenv().StandFarm then
-                                            print("Have wanted stand!")
-                                            StandFarmToggle:Set(false)
-                                            OrionLib:MakeNotification({
-                                                Name = "Stand Farm",
-                                                Content = "You Already Have the Wanted Stand!",
-                                                Image = "",
-                                                Time = 5
-                                            })
-                                        else
                                         --print("Have Stand So Changing It!")
                                         local Arrow = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("StandArrow")
                                         if Arrow then
@@ -405,14 +406,14 @@ if game.PlaceId == 5910449407 then
                                         end
                                     end
                                 end
-                            end
-                    GetStand()
-                end
+                        GetStand()
+                    end
                 wait(7)
+                end
             end
         end
-    end
     })
+    
     local Tab = Window:MakeTab({
         Name = "Mob Farm",
         Icon = "",
