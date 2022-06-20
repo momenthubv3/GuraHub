@@ -51,7 +51,7 @@ if game.PlaceId == 5910449407 then
     local Section = Tab:AddSection({
         Name = "Script Information"
     })
-    Tab:AddParagraph("Version :", "V1.7.2")
+    Tab:AddParagraph("Version :", "V1.7.1")
     
     Tab:AddParagraph("Last Update :", "17/06/2022")
     local Section = Tab:AddSection({
@@ -368,38 +368,50 @@ if game.PlaceId == 5910449407 then
                 else
                     if mystand == getgenv().StandFarm then
                         print("Have wanted stand!")
+                        --StandFarmToggle:Set(false)
                         OrionLib:MakeNotification({
                             Name = "Stand Farm",
                             Content = "You Already Have the Wanted Stand!",
                             Image = "",
                             Time = 5
                         })
-                    else
-                    local function GetStand()
-                            if mystand == "None" then
-                                --print("Dont have stand")
-                                local Arrow = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("StandArrow")
-                                if Arrow then
-                                    game:GetService("Players").LocalPlayer.Character.Humanoid:EquipTool(Arrow)
-                                    wait(0.5)
-                                    game:GetService("ReplicatedStorage").Remotes.ItemUsage:FireServer("StandArrow")
-                                end
-                            else
-                                --print("Have Stand So Changing It!")
-                                local Arrow = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("StandArrow")
-                                if Arrow then
-                                    game:GetService("Players").LocalPlayer.Character.Humanoid:EquipTool(Arrow)
-                                    wait(0.5)
-                                    game:GetService("ReplicatedStorage").Remotes.ItemUsage:FireServer("StandArrow")
+                        else
+                            local function GetStand()
+                                    if mystand == "None" then
+                                        --print("Dont have stand")
+                                        local Arrow = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("StandArrow")
+                                        if Arrow then
+                                            game:GetService("Players").LocalPlayer.Character.Humanoid:EquipTool(Arrow)
+                                            wait(0.5)
+                                            game:GetService("ReplicatedStorage").Remotes.ItemUsage:FireServer("StandArrow")
+                                        end
+                                    else
+                                        if mystand == getgenv().StandFarm then
+                                            print("Have wanted stand!")
+                                            StandFarmToggle:Set(false)
+                                            OrionLib:MakeNotification({
+                                                Name = "Stand Farm",
+                                                Content = "You Already Have the Wanted Stand!",
+                                                Image = "",
+                                                Time = 5
+                                            })
+                                        else
+                                        --print("Have Stand So Changing It!")
+                                        local Arrow = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("StandArrow")
+                                        if Arrow then
+                                            game:GetService("Players").LocalPlayer.Character.Humanoid:EquipTool(Arrow)
+                                            wait(0.5)
+                                            game:GetService("ReplicatedStorage").Remotes.ItemUsage:FireServer("StandArrow")
+                                        end
+                                    end
                                 end
                             end
-                        end
-                    end
                     GetStand()
                 end
                 wait(7)
             end
         end
+    end
     })
     local Tab = Window:MakeTab({
         Name = "Mob Farm",
