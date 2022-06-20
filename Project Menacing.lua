@@ -51,7 +51,7 @@ if game.PlaceId == 5910449407 then
     local Section = Tab:AddSection({
         Name = "Script Information"
     })
-    Tab:AddParagraph("Version :", "V1.7.1")
+    Tab:AddParagraph("Version :", "V1.7.2")
     
     Tab:AddParagraph("Last Update :", "17/06/2022")
     local Section = Tab:AddSection({
@@ -368,7 +368,6 @@ if game.PlaceId == 5910449407 then
                 else
                     if mystand == getgenv().StandFarm then
                         print("Have wanted stand!")
-                        StandFarmToggle:Set(false)
                         OrionLib:MakeNotification({
                             Name = "Stand Farm",
                             Content = "You Already Have the Wanted Stand!",
@@ -837,7 +836,9 @@ if game.PlaceId == 5910449407 then
         end
     end)
 end
---[[ 
+--[[
+    Stand List : -- First Value is the data value and second is the name showed
+     
     return {
         None = "None", 
         StarPlatinumOVA = "Star Platinum: OVA", 
