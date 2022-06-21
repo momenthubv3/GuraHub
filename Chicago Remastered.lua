@@ -55,6 +55,7 @@ function loadSettings()
 end
 loadSettings()
 
+--[[
 -- It click the button of the intro gui
 local intro = game.Players.LocalPlayer.PlayerGui:FindFirstChild("Intro")
 if intro then
@@ -68,7 +69,7 @@ if intro then
     game.Players.LocalPlayer.Character.Humanoid.Health = 0
     game.Workspace.Camera:Destroy()
 end
-
+]]
 
 
 
