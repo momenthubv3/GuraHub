@@ -1,9 +1,4 @@
 -- Fully made by lobox920#9889
--- i made it in like 1 mounth
--- the orion lib documentation is so shitty omfg i couldnt save the settigns :(
--- Thx so much to MiamMiamMiam#0001 she helped me to save the settings !
--- Big up to Bird Hub MiamMiamMiam's script hub
--- Also, the 50% of my explaination that i writed on it is in frensh x)
 
 repeat wait() until game:IsLoaded()
 
@@ -78,11 +73,6 @@ local mypos = mychar.HumanoidRootPart.Position
 local mycf = mychar.HumanoidRootPart.CFrame
 
 
--- compablité pour Krnl et tt
-loadstring(game:HttpGet("https://irisapp.ca/api/Scripts/IrisBetterCompat.lua"))()
-
-
-
 
 local ESP = loadstring(game:HttpGet("https://raw.githubusercontent.com/lobox920/Shar-Script/main/Esp.lua"))()
 ESP:Toggle(true)
@@ -95,7 +85,7 @@ ESP.Names = false
 
 
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({Name = "Chicago Remastered x SharScript", HidePremium = true, SaveConfig = true, ConfigFolder = "Shar Script",IntroText = "Shar Script",IntroIcon = ""})
+local Window = OrionLib:MakeWindow({Name = "Chicago Remastered x SharScript", HidePremium = true, SaveConfig = false, ConfigFolder = "Shar Script",IntroText = "Shar Script",IntroIcon = ""})
 
 local Players = game:GetService("Players").LocalPlayer
 OrionLib:MakeNotification({
