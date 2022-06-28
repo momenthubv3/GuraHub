@@ -1,4 +1,5 @@
--- Fully made by lobox920#9889
+-- made by lobox920#9889
+-- The 50% of my explaination that i writed on it is in frensh x)
 
 repeat wait() until game:IsLoaded()
 
@@ -50,7 +51,6 @@ function loadSettings()
 end
 loadSettings()
 
---[[
 -- It click the button of the intro gui
 local intro = game.Players.LocalPlayer.PlayerGui:FindFirstChild("Intro")
 if intro then
@@ -64,13 +64,15 @@ if intro then
     game.Players.LocalPlayer.Character.Humanoid.Health = 0
     game.Workspace.Camera:Destroy()
 end
-]]
+
 
 
 
 local mychar = game.Players.LocalPlayer.Character
 local mypos = mychar.HumanoidRootPart.Position
 local mycf = mychar.HumanoidRootPart.CFrame
+
+
 
 
 
@@ -85,7 +87,7 @@ ESP.Names = false
 
 
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({Name = "Chicago Remastered x SharScript", HidePremium = true, SaveConfig = false, ConfigFolder = "Shar Script",IntroText = "Shar Script",IntroIcon = ""})
+local Window = OrionLib:MakeWindow({Name = "Chicago Remastered x SharScript", HidePremium = true, SaveConfig = true, ConfigFolder = "Shar Script",IntroText = "Shar Script",IntroIcon = ""})
 
 local Players = game:GetService("Players").LocalPlayer
 OrionLib:MakeNotification({
@@ -108,9 +110,9 @@ Tab:AddParagraph("Current Executor : ",identifyexecutor())
 local Section = Tab:AddSection({
 	Name = "Script Information"
 })
-Tab:AddParagraph("Version :", "V1.2.4")
+Tab:AddParagraph("Version :", "V1.2.5")
 
-Tab:AddParagraph("Last Update :", "27/06/2022")
+Tab:AddParagraph("Last Update :", "28/06/2022")
 local Section = Tab:AddSection({
 	Name = "Developper Information"
 })
@@ -153,7 +155,30 @@ Tab:AddSlider({
 		mychar.Humanoid.JumpHeight = (Value)
 	end    
 })
+Tab:AddButton({
+	Name = "Invisible",
+	Callback = function()
+		yes = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame
 
+		game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(0, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {CFrame = CFrame.new(0,-10,0)}):Play()
+		wait(0.5)
+		if game:GetService("Players").LocalPlayer.Character.LowerTorso:FindFirstChild("Root") then
+			game:GetService("Players").LocalPlayer.Character.LowerTorso.Root.Enabled = false--:Remove() kick the user if its removed and you die
+		end
+		if game:GetService("Players").LocalPlayer.Character.UpperTorso:FindFirstChild("Waist") then
+			game:GetService("Players").LocalPlayer.Character.UpperTorso.Waist.Enabled = false--:Remove()
+		end
+		wait(1)
+		game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = yes
+	end    
+})
+Tab:AddButton({
+	Name = "Visible",
+	Callback = function()
+			game:GetService("Players").LocalPlayer.Character.LowerTorso.Root.Enabled = true------:Remove()
+			game:GetService("Players").LocalPlayer.Character.UpperTorso.Waist.Enabled = true--:Remove()
+	end    
+})
 Tab:AddButton({
 	Name = "Sit",
 	Callback = function()
