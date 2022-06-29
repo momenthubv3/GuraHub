@@ -110,9 +110,9 @@ Tab:AddParagraph("Current Executor : ",identifyexecutor())
 local Section = Tab:AddSection({
 	Name = "Script Information"
 })
-Tab:AddParagraph("Version :", "V1.2.5")
+Tab:AddParagraph("Version :", "V1.2.6")
 
-Tab:AddParagraph("Last Update :", "28/06/2022")
+Tab:AddParagraph("Last Update :", "29/06/2022")
 local Section = Tab:AddSection({
 	Name = "Developper Information"
 })
@@ -156,20 +156,20 @@ Tab:AddSlider({
 	end    
 })
 Tab:AddButton({
-	Name = "Invisible",
+	Name = "Invisible [BROKEN]",
 	Callback = function()
-		yes = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame
-
-		game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(0, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {CFrame = CFrame.new(0,-10,0)}):Play()
-		wait(0.5)
-		if game:GetService("Players").LocalPlayer.Character.LowerTorso:FindFirstChild("Root") then
-			game:GetService("Players").LocalPlayer.Character.LowerTorso.Root.Enabled = false--:Remove() kick the user if its removed and you die
-		end
-		if game:GetService("Players").LocalPlayer.Character.UpperTorso:FindFirstChild("Waist") then
-			game:GetService("Players").LocalPlayer.Character.UpperTorso.Waist.Enabled = false--:Remove()
-		end
-		wait(1)
-		game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = yes
+--		yes = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame
+--
+--		game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(0, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {CFrame = CFrame.new(0,-10,0)}):Play()
+--		wait(0.5)
+--		if game:GetService("Players").LocalPlayer.Character.LowerTorso:FindFirstChild("Root") then
+--			game:GetService("Players").LocalPlayer.Character.LowerTorso.Root.Enabled = false--:Remove() kick the user if its removed and you die
+--		end
+--		if game:GetService("Players").LocalPlayer.Character.UpperTorso:FindFirstChild("Waist") then
+--			game:GetService("Players").LocalPlayer.Character.UpperTorso.Waist.Enabled = false--:Remove()
+--		end
+--		wait(1)
+--		game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = yes
 	end    
 })
 Tab:AddButton({
