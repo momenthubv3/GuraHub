@@ -25,7 +25,7 @@ _G.Settings = {
 
 
 ---SAVE---
-local foldername = "Shar Script"
+local foldername = "Gura Hub"
 local filename = "Chicago Remastered.lua"
 ---CONFIG NAME OF YOUR FOLDER AND FILE---
 
@@ -87,7 +87,7 @@ ESP.Names = false
 
 
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({Name = "Chicago Remastered x SharScript", HidePremium = true, SaveConfig = true, ConfigFolder = "Shar Script",IntroText = "Shar Script",IntroIcon = ""})
+local Window = OrionLib:MakeWindow({Name = "Chicago Remastered x Gura Hub", HidePremium = true, SaveConfig = true, ConfigFolder = "Shar Script",IntroText = "Gura Hub",IntroIcon = ""})
 
 local Players = game:GetService("Players").LocalPlayer
 OrionLib:MakeNotification({
@@ -110,7 +110,7 @@ Tab:AddParagraph("Current Executor : ",identifyexecutor())
 local Section = Tab:AddSection({
 	Name = "Script Information"
 })
-Tab:AddParagraph("Version :", "V1.2.6")
+Tab:AddParagraph("Version :", "V1.2.7")
 
 Tab:AddParagraph("Last Update :", "29/06/2022")
 local Section = Tab:AddSection({
