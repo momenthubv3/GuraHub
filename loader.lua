@@ -37,6 +37,9 @@ elseif game.PlaceId == 9210611498 then -- Miami Florida Rolepay
     Succes()
     wait(2)
     InfoLoading()
+    if getgenv().Theme = nil then
+        getgenv().Theme = "Dark"
+    end
     loadstring(game:HttpGet("https://raw.githubusercontent.com/lobox920/Gura-Hub/main/Miami%20Florida.lua"))()
 elseif game.PlaceId == 9274997956 then
     Succes()
