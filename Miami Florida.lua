@@ -1,5 +1,5 @@
 -- https://discord.gg/FKHmERC6y5
--- Ver 1.1.6
+-- Ver 1.1.7
 -- Fixed the autofarm now no ban (‾◡◝)
 
 _, Protected_by_MoonSecV2, Discord = 'discord.gg/gQEH2uZxUk'
