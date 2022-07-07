@@ -1,4 +1,4 @@
--- discord.gg/
+-- https://discord.gg/FKHmERC6y5
 -- Ver 1.1.6
 -- Fixed the autofarm now no ban (‾◡◝)
 
