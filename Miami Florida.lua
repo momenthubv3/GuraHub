@@ -1,5 +1,5 @@
 -- https://discord.gg/FKHmERC6y5
--- Ver 2.0
+-- Ver 2.1
 
 _, Protected_by_MoonSecV2, Discord = 'discord.gg/gQEH2uZxUk'
 
