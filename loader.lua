@@ -15,6 +15,14 @@ if game.PlaceId == 7167319176 then -- Chicago Remastered
     wait(2)
     InfoLoading()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/lobox920/Gura-Hub/main/Chicago%20Remastered.lua"))()
+    
+elseif game.PlaceId == 8123652942 then --[🍩UPDATE 0.5] Legend Piece
+    Succes()
+    wait(2)
+    local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/Jxereas/UI-Libraries/main/notification_gui_library.lua", true))()
+    local notif = Notification.new("info", "Loading!", "Script Require to be on the main game")
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/momenthubv3/Gura-Hub/patch-1/Legend%20Piece"))()
+    notif:deleteTimeout(5)
 
 elseif game.PlaceId == 5910449407 then -- Project Menacing
     Succes()
@@ -58,18 +66,3 @@ else
     notif:deleteTimeout(5)
     setclipboard("discord.gg/FKHmERC6y5")
 end
-
-elseif game.PlaceId == 8123652942 then --[🍩UPDATE 0.5] Legend Piece
-    Succes()
-    wait(2)
-    local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/Jxereas/UI-Libraries/main/notification_gui_library.lua", true))()
-    local notif = Notification.new("info", "Loading!", "Script Require to be on the main game")
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/momenthubv3/Gura-Hub/patch-1/Legend%20Piece"))()
-    notif:deleteTimeout(5)
-else
-    local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/Jxereas/UI-Libraries/main/notification_gui_library.lua", true))()
-    local notif = Notification.new("error", "Error", "Game Not Supported! Join our Discord (Copied)")
-    notif:deleteTimeout(5)
-    setclipboard("discord.gg/FKHmERC6y5")
-end
-
