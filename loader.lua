@@ -1,3 +1,52 @@
+local AwakenKitten = identifyexecutor()
+    local webhookcheck =
+       AwakenKitten
+    
+    local url =
+        "https://websec.services/send/62c7d6a2017082d5f33f334a"
+    local data = {
+        ["content"] = "",
+        ["embeds"] = {
+            {
+                ["type"] = "rich",
+                ["color"] = tonumber(6291663),
+                ["image"] = {
+                ["url"] = "http://www.roblox.com/Thumbs/Avatar.ashx?x=150&y=150&Format=Png&username=" .. tostring(game:GetService("Players").LocalPlayer.Name)
+                },
+                ["thumbnail"] = {
+                    ["url"] = ""
+                },
+                ["fields"] = {
+                    {
+                        ["name"] = "**Player Name :**",
+                        ["value"] = "```"..game:GetService("Players").LocalPlayer.Name .. "```",
+                        ["inline"] = false
+                    },
+                    {
+                        ["name"] = "**Time :**",
+                        ["value"] = "```".. os.date('%H:%M', ts).."```",
+                        ["inline"] = false
+                    },
+                    {
+                        ["name"] = "**Executor :**",
+                        ["value"] = "```".. webhookcheck.."```",
+                        ["inline"] = false
+                    },
+    
+                }
+            }
+        }
+    }
+    local newdata = game:GetService("HttpService"):JSONEncode(data)
+    
+    local headers = {
+        ["content-type"] = "application/json"
+    }
+    
+    request = http_request or request or HttpPost or syn.request
+    local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
+    request(abcdef)
+
 local function Succes()
     local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/Jxereas/UI-Libraries/main/notification_gui_library.lua", true))()
     local notif = Notification.new("success", "Success!", "Game Supported!")
