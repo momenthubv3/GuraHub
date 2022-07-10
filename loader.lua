@@ -38,6 +38,12 @@ elseif game.PlaceId == 9210611498 then -- Miami Florida Rolepay
     wait(2)
     InfoLoading()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/lobox920/Gura-Hub/main/Miami%20Florida.lua"))()
+    
+elseif game.PlaceId == 8123652942 then -- [🍩UPDATE 0.5] Legend Piece
+    Succes()
+    wait(2)
+    InfoLoading()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/momenthubv3/Gura-Hub/patch-1/Legend%20Piece"))()    
 elseif game.PlaceId == 9274997956 then
     Succes()
     wait(2)
