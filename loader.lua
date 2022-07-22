@@ -98,7 +98,12 @@ function IsExecuted()
         Succes()
         wait(2)
         InfoLoading()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/momenthubv3/Gura-Hub/patch-1/Legend%20Piece"))()    
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/momenthubv3/Gura-Hub/patch-1/Legend%20Piece"))()
+    elseif game.PlaceId == 5956785391 then -- [RELEASE🌊⚡👺] Project Slayers
+        Succes()
+        wait(2)
+        InfoLoading()
+        https://raw.githubusercontent.com/momenthubv3/Gura-Hub/patch-1/Project%20Slayer   
     elseif game.PlaceId == 9274997956 then
         Succes()
         wait(2)
