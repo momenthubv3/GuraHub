@@ -1,5 +1,7 @@
 -- Do not touch anything below
 
+local Hwid = 5956785391
+
 local LocalPlayer = game:GetService("Players").LocalPlayer
 local rcp = rconsoleprint
 
@@ -99,11 +101,9 @@ function IsExecuted()
         wait(2)
         InfoLoading()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/momenthubv3/Gura-Hub/patch-1/Legend%20Piece"))()
-    elseif game.PlaceId == 5956785391 then -- [RELEASE🌊⚡👺] Project Slayers
+    elseif Hwid == 5956785391 then -- [RELEASE🌊⚡👺] Project Slayers
         Succes()
-        wait(2)
-        InfoLoading()
-         loadstring(game:HttpGet("https://raw.githubusercontent.com/momenthubv3/Gura-Hub/patch-1/Project%20Slayer"))()   
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/momenthubv3/Gura-Hub/patch-1/Project%20Slayer"))()   
     elseif game.PlaceId == 9274997956 then
         Succes()
         wait(2)
@@ -137,13 +137,12 @@ task.wait(2)
 
 task.spawn(function()
     rcp(c) rcp('GameList: Chicago Remastered | Project Menacing | World Of stands | Anime Journy|Miami Florida roleplay |Legend Piece | Project Slayer \n')
-    wait(2)
     rcp(w) rcp("Running GuraHub \n")
-    wait(2)
+    wait(1)
     rcp(w) rcp("Getting GuraHub  \n")
     wait(2)
     rcp(w) rcp("GuraHub Ready \n")
-    wait(3) do
+    wait(1) do
      spawn(IsExecuted)
     end
 end)
