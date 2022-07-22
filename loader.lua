@@ -136,7 +136,7 @@ local r = "@@RED@@"
 task.wait(2)
 
 task.spawn(function()
-    rcp(c) rcp('GameList: Chicago Remastered | Project Menacing | World Of stands | Anime Journy|Miami Florida roleplay |Legend Piece \n')
+    rcp(c) rcp('GameList: Chicago Remastered | Project Menacing | World Of stands | Anime Journy|Miami Florida roleplay |Legend Piece | Project Slayer \n')
     wait(2)
     rcp(w) rcp("Running GuraHub \n")
     wait(2)
