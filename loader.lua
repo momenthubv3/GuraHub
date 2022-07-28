@@ -2,6 +2,8 @@
 
 local Hwid = 5956785391
 
+local goofyah = 59567851
+
 local LocalPlayer = game:GetService("Players").LocalPlayer
 local rcp = rconsoleprint
 
@@ -65,8 +67,6 @@ function IsExecuted()
         local notif = Notification.new("info", "Loading!", "Loading Script!")
         notif:deleteTimeout(5)
     end
-    
-    local goofyah = 59567851
     
     if game.PlaceId == 7167319176 then -- Chicago Remastered
         Succes()
