@@ -107,7 +107,7 @@ function IsExecuted()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/momenthubv3/Gura-Hub/patch-1/Project%20Slayer"))()
     elseif goofyah == 59567851 then -- RBWORLD 4
         Succes()
-        https://raw.githubusercontent.com/momenthubv3/RB4AGFASO/main/.gitignore    
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/momenthubv3/RB4AGFASO/main/.gitignore"))()    
     elseif game.PlaceId == 9274997956 then
         Succes()
         wait(2)
