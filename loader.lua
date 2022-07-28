@@ -2,7 +2,7 @@
 
 local Hwid = 5956785391
 
-local goofyah = 59567851
+local goofyah = 21851720512
 
 local LocalPlayer = game:GetService("Players").LocalPlayer
 local rcp = rconsoleprint
@@ -105,7 +105,7 @@ function IsExecuted()
     elseif Hwid == 5956785391 then -- [RELEASE🌊⚡👺] Project Slayers
         Succes()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/momenthubv3/Gura-Hub/patch-1/Project%20Slayer"))()
-    elseif goofyah == 59567851 then -- RBWORLD 4
+    elseif goofyah == 21851720512 then -- RBWORLD 4
         Succes()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/momenthubv3/RB4AGFASO/main/.gitignore"))()    
     elseif game.PlaceId == 9274997956 then
