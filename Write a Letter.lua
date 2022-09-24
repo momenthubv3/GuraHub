@@ -5,7 +5,7 @@ if game.PlaceId == 8425637426 then
    
    local Players = game:GetService("Players").LocalPlayer
    OrionLib:MakeNotification({
-       Name = "Shar Script",
+       Name = "Gura Hub",
        Content = "Welcome "..Players.Name.."!",
        Image = "rbxassetid://",
        Time = 5
@@ -24,9 +24,10 @@ if game.PlaceId == 8425637426 then
    local Section = Tab:AddSection({
        Name = "Script Information"
    })
-   Tab:AddParagraph("Version :", "V1.1.3")
+   Tab:AddParagraph("Version :", "V1.1.4")
    
-   Tab:AddParagraph("Last Update :", "21/09/2022")
+   Tab:AddParagraph("Last Update :", "24/09/2022")
+
    local Section = Tab:AddSection({
        Name = "Developper Information"
    })
@@ -63,7 +64,7 @@ if game.PlaceId == 8425637426 then
    	Options = {"Air Spin", "Floaty Sit", "Floaty Lay", "Meditation", "Ambitious Flight"},
    	Callback = function(Value)
    		if Value == "Air Spin" then
-           a = game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(game:GetService("ReplicatedStorage").Emotes.Packs.Floaty["Air Spin"].Animation)
+           a = game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(game:GetService("ReplicatedStorage").Emotes.Packs.Floaty["Air Spin"].Core)
            a:Play()
 		elseif Value == "Floaty Sit" then
            a = game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(game:GetService("ReplicatedStorage").Emotes.Packs.Floaty["Floaty Sit"].Core)
@@ -277,6 +278,106 @@ if game.PlaceId == 8425637426 then
     		if Value == "Idle2" then
     			game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(game:GetService("ReplicatedStorage").Emotes.Packs["Weapons 2"]["Great Sword"].Idle2):Play()
     		end
+    	end    
+    })
+
+
+	local Section = Tab:AddSection({
+	 Name = "Floaty 2 Pack"
+    })
+
+    Tab:AddDropdown({
+    	Name = "Simple",
+    	Default = "",
+    	Options = {"Air Spin 2", "Floaty Lay 2", "Floaty Lay 3", "Floaty Legs Crossed Sit", "Floaty Sideways Lay"},
+    	Callback = function(Value)
+    		if Value == "Air Spin 2" then
+    			game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(game:GetService("ReplicatedStorage").Emotes.Packs["Floaty 2"]["Air Spin 2"].Core):Play()
+			elseif Value == "Floaty Lay 2" then
+    			game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(game:GetService("ReplicatedStorage").Emotes.Packs["Floaty 2"]["Floaty Lay 2"].Core):Play()
+			elseif Value == "Floaty Lay 3" then
+    			game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(game:GetService("ReplicatedStorage").Emotes.Packs["Floaty 2"]["Floaty Lay 3"].Core):Play()
+    			game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(game:GetService("ReplicatedStorage").Emotes.Packs["Floaty 2"]["Floaty Lay 3"].In):Play()	
+			
+				elseif Value == "Floaty Legs Crossed Sit" then
+				game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(game:GetService("ReplicatedStorage").Emotes.Packs["Floaty 2"]["Floaty Legs Crossed Sit"].Core):Play()
+				game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(game:GetService("ReplicatedStorage").Emotes.Packs["Floaty 2"]["Floaty Legs Crossed Sit"].In):Play()
+			elseif Value == "Floaty Sideways Lay" then
+				game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(game:GetService("ReplicatedStorage").Emotes.Packs["Floaty 2"]["Floaty Sideways Lay"].Core):Play()
+				game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(game:GetService("ReplicatedStorage").Emotes.Packs["Floaty 2"]["Floaty Sideways Lay"].In):Play()
+			end
+    	end    
+    })
+
+	Tab:AddDropdown({
+    	Name = "Floaty Criss Cross",
+    	Default = "",
+    	Options = {"Start","Core", "Idle1"},
+    	Callback = function(Value)
+    		if Value == "Start" then
+				game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(game:GetService("ReplicatedStorage").Emotes.Packs["Floaty 2"]["Floaty Criss Cross"].In):Play()
+			elseif Value == "Core" then
+				game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(game:GetService("ReplicatedStorage").Emotes.Packs["Floaty 2"]["Floaty Criss Cross"].Core):Play()
+			elseif Value == "Idle1" then
+    			game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(game:GetService("ReplicatedStorage").Emotes.Packs["Floaty 2"]["Floaty Criss Cross"].Idle1):Play()
+			end
+    	end    
+    })
+	Tab:AddDropdown({
+    	Name = "Bubbly Float",
+    	Default = "",
+    	Options = {"Start","Core", "Idle1"},
+    	Callback = function(Value)
+			if Value == "Start" then
+				game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(game:GetService("ReplicatedStorage").Emotes.Packs["Floaty 2"]["Bubbly Float"].In):Play()
+    		elseif Value == "Core" then
+				game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(game:GetService("ReplicatedStorage").Emotes.Packs["Floaty 2"]["Bubbly Float"].Core):Play()
+			elseif Value == "Start" then
+				game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(game:GetService("ReplicatedStorage").Emotes.Packs["Floaty 2"]["Bubbly Float"].In):Play()
+			elseif Value == "Idle1" then
+    			game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(game:GetService("ReplicatedStorage").Emotes.Packs["Floaty 2"]["Bubbly Float"].Idle1):Play()
+			end
+    	end    
+    })
+	local Section = Tab:AddSection({
+	 Name = "Dance 2 Pack"
+    })
+
+	Tab:AddDropdown({
+    	Name = "Dance 2 Pack",
+    	Default = "",
+    	Options = {"Dance Robot Dance","2.", "Sad Cat v1", "Sad Cat v2", "Sad Cat v3", "Sad Cat v4", "Sway v1", "Sway v2", "Sway v3", "Sway v4", "Sway v5", "WOOOOOOO", "Arigato"},
+    	Callback = function(Value)
+			if Value == "Dance Robot Dance" then
+				game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(game:GetService("ReplicatedStorage").Emotes.Packs["Dance 2"][Value].Core):Play()
+    		elseif Value == "2." then
+    			game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(game:GetService("ReplicatedStorage").Emotes.Packs["Dance 2"][Value].Core):Play()
+			----------------
+			elseif Value == "Sad Cat v1" then
+				game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(game:GetService("ReplicatedStorage").Emotes.Packs["Dance 2"][Value].Core):Play()
+			elseif Value == "Sad Cat v2" then
+				game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(game:GetService("ReplicatedStorage").Emotes.Packs["Dance 2"][Value].Core):Play()
+			elseif Value == "Sad Cat v3" then
+				game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(game:GetService("ReplicatedStorage").Emotes.Packs["Dance 2"][Value].Core):Play()
+			elseif Value == "Sad Cat v4" then
+				game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(game:GetService("ReplicatedStorage").Emotes.Packs["Dance 2"][Value].Core):Play()
+			----------------
+			elseif Value == "Sway v1" then
+				game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(game:GetService("ReplicatedStorage").Emotes.Packs["Dance 2"][Value].Core):Play()
+			elseif Value == "Sway v2" then
+				game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(game:GetService("ReplicatedStorage").Emotes.Packs["Dance 2"][Value].Core):Play()
+			elseif Value == "Sway v3" then
+				game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(game:GetService("ReplicatedStorage").Emotes.Packs["Dance 2"][Value].Core):Play()
+			elseif Value == "Sway v4" then
+				game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(game:GetService("ReplicatedStorage").Emotes.Packs["Dance 2"][Value].Core):Play()
+			elseif Value == "Sway v5" then
+				game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(game:GetService("ReplicatedStorage").Emotes.Packs["Dance 2"][Value].Core):Play()
+			----------------
+				elseif Value == "WOOOOOOO" then
+				game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(game:GetService("ReplicatedStorage").Emotes.Packs["Dance 2"][Value].Core):Play()
+			elseif Value == "Arigato" then
+				game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(game:GetService("ReplicatedStorage").Emotes.Packs["Dance 2"][Value].Core):Play()
+			end
     	end    
     })
 end
